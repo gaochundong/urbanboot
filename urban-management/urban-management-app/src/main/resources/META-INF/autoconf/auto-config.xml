@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group name="datasource">
+        <property name="autoconf.spring.datasource.endpoint" defaultValue="127.0.0.1" description="数据库地址"/>
+        <property name="autoconf.spring.datasource.port" defaultValue="3306" description="数据库端口"/>
+        <property name="autoconf.spring.datasource.username" defaultValue="username" description="数据库用户名"/>
+        <property name="autoconf.spring.datasource.password" defaultValue="password" description="数据库密码"/>
+        <property name="autoconf.spring.datasource.dbschema" defaultValue="db" description="数据库Schema"/>
+    </group>
+    <script>
+        <generate template="application.yml" charset="UTF-8"/>
+    </script>
+</config>

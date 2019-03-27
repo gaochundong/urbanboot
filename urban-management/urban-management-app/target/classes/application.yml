@@ -1,0 +1,64 @@
+server:
+  port: 7200
+  tomcat:
+    basedir: ./
+    accesslog:
+      enabled: true
+      directory: logs
+      pattern: '%h %l %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i"'
+      prefix: access
+      file-date-format: .yyyy-MM-dd
+      suffix: .log
+      rotate: true
+      rename-on-rotate: false
+      buffered: true
+      request-attributes-enabled: true
+  error:
+    include-exception: false
+    include-stacktrace: never
+    whitelabel:
+      enabled: true
+
+logging:
+  config: classpath:logback/logback-config.xml
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
+        beans:
+          factory:
+            support:
+              DefaultListableBeanFactory: ERROR
+        core:
+          LocalVariableTableParameterNameDiscoverer: ERROR
+          env:
+            PropertySourcesPropertyResolver: ERROR
+      hibernate: ERROR
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+
+spring:
+  application:
+    name: urban-management-app
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/db?characterEncoding=UTF-8&autoReconnect=true&useSSL=true
+    username: username
+    password: password
+    hikari:
+      pool-name: UrbanManagementAppHikariCP
+      connection-test-query: SELECT 1 FROM DUAL
+      connection-timeout: 30000
+      maximum-pool-size: 5
+      minimum-idle: 5
+      idle-timeout: 30000
+      auto-commit: false
+  jackson:
+    dateFormat: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+    timeZone: GMT
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+      WRITE_DURATIONS_AS_TIMESTAMPS: true

@@ -1,0 +1,9 @@
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/mapper/TrafficLightMapper.class
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/service/impl/TrafficLightServiceImpl.class
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/service/TrafficLightService.class
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/entity/TrafficLightPO.class
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/converter/SimpleTypeConverterImpl.class
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/converter/TrafficLightConverterImpl.class
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/converter/SimpleTypeConverter.class
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/converter/TrafficLightConverter.class
+fun/goodgoodstudy/bestpractice/urbanboot/urbanmanagement/controller/TrafficLightController.class
