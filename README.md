@@ -4,4 +4,4 @@ An archetype project of spring boot to help creating runnable application conven
 
 ## autoconf setup
 
-- Need create a folder at '~/autoconf/dev', then the maven plugin will put an antx.properties file within the folder.
+- Need create a folder '~/autoconf/dev', then the maven plugin will put an antx.properties file within the folder.
