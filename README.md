@@ -12,4 +12,4 @@ An archetype project of spring boot to help creating runnable application conven
 
 ## maven package
 
-- Just 'mvn package'.
+- Just 'mvn package' or 'mvn package -Pprod'.
