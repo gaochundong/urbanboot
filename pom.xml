@@ -178,6 +178,12 @@
             </properties>
         </profile>
         <profile>
+            <id>pre</id>
+            <properties>
+                <devModel>pre</devModel>
+            </properties>
+        </profile>
+        <profile>
             <id>beta</id>
             <properties>
                 <devModel>beta</devModel>
