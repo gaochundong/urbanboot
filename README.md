@@ -1,6 +1,6 @@
 # Urban Boot
 
-An archetype project of spring boot to help creating runnable application conveniently.
+An archetype project of spring boot.
 
 ## autoconf setup
 
