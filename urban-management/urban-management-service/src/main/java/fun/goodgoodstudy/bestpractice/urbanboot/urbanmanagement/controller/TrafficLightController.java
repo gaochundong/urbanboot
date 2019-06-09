@@ -1,6 +1,7 @@
 package fun.goodgoodstudy.bestpractice.urbanboot.urbanmanagement.controller;
 
 import fun.goodgoodstudy.bestpractice.urbanboot.urbanmanagement.contract.pojo.TrafficLightColor;
+import fun.goodgoodstudy.bestpractice.urbanboot.urbanmanagement.exception.BadRequestException;
 import fun.goodgoodstudy.bestpractice.urbanboot.urbanmanagement.service.TrafficLightService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class TrafficLightController {
             @PathVariable("cityId") UUID cityId,
             @RequestParam(value = "color", required = false) String color) {
         if (cityId == null) {
-            throw new IllegalArgumentException("城市ID不能为空");
+            throw new BadRequestException("城市ID不能为空");
         }
 
         TrafficLightColor colorType = TrafficLightColor.parse(color);

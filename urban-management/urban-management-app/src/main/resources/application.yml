@@ -10,7 +10,7 @@ server:
       file-date-format: .yyyy-MM-dd
       suffix: .log
       rotate: true
-      rename-on-rotate: false
+      rename-on-rotate: true
       buffered: true
       request-attributes-enabled: true
   error:
@@ -62,3 +62,4 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
       WRITE_DURATIONS_AS_TIMESTAMPS: true
+    default-property-inclusion: ALWAYS
