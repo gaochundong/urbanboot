@@ -13,3 +13,12 @@ An archetype project of spring boot to help creating runnable application conven
 ## maven package
 
 - Just 'mvn package' or 'mvn package -Pprod'.
+
+## profile list
+
+- dev
+- test
+- stage
+- pre
+- beta
+- prod
