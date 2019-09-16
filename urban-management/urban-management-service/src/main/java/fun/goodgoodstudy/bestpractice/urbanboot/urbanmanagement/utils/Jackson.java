@@ -3,6 +3,7 @@ package fun.goodgoodstudy.bestpractice.urbanboot.urbanmanagement.utils;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
@@ -50,6 +51,16 @@ public enum Jackson {
         }
     }
 
+    public static <T> T fromJsonString(String json, TypeReference valueTypeRef) {
+        if (json == null)
+            return null;
+        try {
+            return objectMapper.readValue(json, valueTypeRef);
+        } catch (Exception e) {
+            throw new IllegalStateException("Unable to parse Json String.", e);
+        }
+    }
+
     public static JsonNode jsonNodeOf(String json) {
         return fromJsonString(json, JsonNode.class);
     }
@@ -76,7 +87,7 @@ public enum Jackson {
         return writer;
     }
 
-    public static ObjectWriter getPrettywriter() {
+    public static ObjectWriter getPrettyWriter() {
         return prettyWriter;
     }
 }

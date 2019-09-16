@@ -5,11 +5,11 @@
     <parent>
         <groupId>fun.goodgoodstudy.bestpractice.urbanboot</groupId>
         <artifactId>urban-management-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2098-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>urban-management-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2098-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Urban Management Application</name>
     <description>Urban Management Application</description>
@@ -33,6 +33,34 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--spring-cloud-consul-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.code.findbugs</groupId>
+                    <artifactId>jsr305</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.netflix.hystrix</groupId>
+                    <artifactId>hystrix-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-autoconfigure</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!--modules-->

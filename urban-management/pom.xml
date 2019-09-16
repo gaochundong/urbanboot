@@ -5,12 +5,12 @@
     <parent>
         <groupId>fun.goodgoodstudy.bestpractice</groupId>
         <artifactId>urbanboot-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2098-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>fun.goodgoodstudy.bestpractice.urbanboot</groupId>
     <artifactId>urban-management-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2098-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Urban Management Parent POM</name>
     <description>Urban Management Parent POM</description>

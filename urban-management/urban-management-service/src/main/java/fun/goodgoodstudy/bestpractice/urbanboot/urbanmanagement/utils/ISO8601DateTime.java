@@ -1,6 +1,9 @@
 package fun.goodgoodstudy.bestpractice.urbanboot.urbanmanagement.utils;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 public enum ISO8601DateTime {
@@ -19,6 +22,22 @@ public enum ISO8601DateTime {
 
     public static String format(LocalDateTime dateTime) {
         return dateTimeFormatter.format(dateTime);
+    }
+
+    public static String format(Long epochMilliseconds) {
+        return format(toEpochDateTime(epochMilliseconds));
+    }
+
+    public static LocalDateTime toEpochDateTime(Long epochMilliseconds) {
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMilliseconds), ZoneId.of("UTC"));
+    }
+
+    public static String formattedUtcNow() {
+        return format(utcNow());
+    }
+
+    public static LocalDateTime utcNow() {
+        return LocalDateTime.now(ZoneOffset.UTC);
     }
 
     public static LocalDateTime parse(String dateTime) {

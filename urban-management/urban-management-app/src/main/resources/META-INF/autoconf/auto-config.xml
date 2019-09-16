@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
+    <group name="consul">
+        <property name="autoconf.spring.cloud.service.discovery.consul.host" defaultValue="127.0.0.1" description="Consul地址"/>
+        <property name="autoconf.spring.cloud.service.discovery.consul.port" defaultValue="8500" description="Consul端口"/>
+    </group>
     <group name="datasource">
         <property name="autoconf.spring.datasource.endpoint" defaultValue="127.0.0.1" description="数据库地址"/>
         <property name="autoconf.spring.datasource.port" defaultValue="3306" description="数据库端口"/>
