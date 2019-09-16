@@ -24,7 +24,7 @@
         <autoconfig.file>antx.properties</autoconfig.file>
 
         <!--dependencies-->
-        <lombok.version>1.18.6</lombok.version>
+        <lombok.version>1.18.8</lombok.version>
         <spring.version>5.1.5.RELEASE</spring.version>
         <spring-boot-starter.version>2.1.3.RELEASE</spring-boot-starter.version>
         <spring-boot-starter-web.version>2.1.3.RELEASE</spring-boot-starter-web.version>
