@@ -23,7 +23,21 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: consul,health,info,metrics,prometheus,shutdown
+  endpoint:
+    consul:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    shutdown:
+      enabled: true
 
 logging:
   config: classpath:logback/logback-config.xml
@@ -51,32 +65,6 @@ mybatis:
   mapper-locations: classpath*:mybatis/builder/*Mapper.xml
 
 spring:
-  application:
-    name: urban-management-app
-  cloud:
-    consul:
-      enabled: true
-      host: ${autoconf.spring.cloud.service.discovery.consul.host}
-      port: ${autoconf.spring.cloud.service.discovery.consul.port}
-      scheme: http
-      discovery:
-        enabled: true
-        service-name: urban-management-app
-        tags: category=urbanboot, name=urban-management-app
-        scheme: http
-        fail-fast: true
-        prefer-ip-address: true
-        health-check-path: /health
-        health-check-interval: 10s
-        health-check-timeout: 5s
-        health-check-critical-timeout: 30m
-        heartbeat:
-          enabled: true
-          ttl-value: 30
-      retry:
-        initial-interval: 1000
-        max-interval: 5000
-        max-attempts: 6
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -98,3 +86,10 @@ spring:
       WRITE_DATES_AS_TIMESTAMPS: false
       WRITE_DURATIONS_AS_TIMESTAMPS: true
     default-property-inclusion: ALWAYS
+
+springfox:
+  documentation:
+    auto-startup: true
+    swagger:
+      v2:
+        path: /urban-boot/urban-management/api-docs
