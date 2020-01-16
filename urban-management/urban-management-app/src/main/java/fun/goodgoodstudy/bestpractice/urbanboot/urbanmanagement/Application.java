@@ -3,12 +3,14 @@ package fun.goodgoodstudy.bestpractice.urbanboot.urbanmanagement;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
 @SpringBootApplication
 @ComponentScan("fun.goodgoodstudy.bestpractice")
+@EnableSwagger2
 public class Application {
 
     @PostConstruct
