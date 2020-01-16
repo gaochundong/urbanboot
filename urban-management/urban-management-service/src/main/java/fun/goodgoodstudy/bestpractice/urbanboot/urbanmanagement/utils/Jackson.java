@@ -51,7 +51,7 @@ public enum Jackson {
         }
     }
 
-    public static <T> T fromJsonString(String json, TypeReference valueTypeRef) {
+    public static <T> T fromJsonString(String json, TypeReference<T> valueTypeRef) {
         if (json == null)
             return null;
         try {
