@@ -21,7 +21,7 @@ public class TrafficLightController {
     private TrafficLightService trafficLightService;
 
     @ApiOperation("查询城市信号灯数量")
-    @GetMapping(path = "/urbanboot/cities/{cityId}/traffic-lights-count")
+    @GetMapping(path = "/urbanboot/cities/{cityId}/traffic-lights-count", produces = "application/json")
     public Integer getCityTrafficLightCount(
             @PathVariable("cityId") @ApiParam(value = "城市ID") UUID cityId,
             @RequestParam(value = "color", required = false) @ApiParam(value = "信号灯颜色") String color) {
