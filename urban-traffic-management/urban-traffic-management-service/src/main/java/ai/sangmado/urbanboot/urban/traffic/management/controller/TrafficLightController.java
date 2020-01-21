@@ -40,10 +40,12 @@ public class TrafficLightController {
         }
 
         TrafficLightColor colorType = TrafficLightColor.parse(color);
-        if (colorType != null) {
-            return trafficLightService.getCityTrafficLightCountByColor(cityId, colorType);
-        } else {
+        if (colorType == null) {
+            // 查询所有信号灯
             return trafficLightService.getCityTrafficLightCount(cityId);
+        } else {
+            // 查询指定颜色信号灯
+            return trafficLightService.getCityTrafficLightCountWithColor(cityId, colorType);
         }
     }
 }

@@ -8,5 +8,5 @@ public interface TrafficLightMapper {
 
     Integer getCityTrafficLightCount(@Param("cityId") String cityId);
 
-    Integer getCityTrafficLightCountByColor(@Param("cityId") String cityId, @Param("color") Integer color);
+    Integer getCityTrafficLightCountWithColor(@Param("cityId") String cityId, @Param("color") Integer color);
 }

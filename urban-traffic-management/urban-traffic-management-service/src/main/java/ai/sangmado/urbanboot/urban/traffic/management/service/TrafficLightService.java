@@ -8,5 +8,5 @@ public interface TrafficLightService {
 
     Integer getCityTrafficLightCount(UUID cityId);
 
-    Integer getCityTrafficLightCountByColor(UUID cityId, TrafficLightColor color);
+    Integer getCityTrafficLightCountWithColor(UUID cityId, TrafficLightColor color);
 }

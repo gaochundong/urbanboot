@@ -43,7 +43,7 @@ public class TrafficLightServiceImpl implements TrafficLightService {
      * @return 信号灯数量
      */
     @Override
-    public Integer getCityTrafficLightCountByColor(UUID cityId, TrafficLightColor color) {
+    public Integer getCityTrafficLightCountWithColor(UUID cityId, TrafficLightColor color) {
         if (cityId == null) {
             throw new IllegalArgumentException("城市ID不能为空");
         }
@@ -51,7 +51,7 @@ public class TrafficLightServiceImpl implements TrafficLightService {
             throw new IllegalArgumentException("信号灯颜色未指定");
         }
 
-        Integer lightCount = trafficLightMapper.getCityTrafficLightCountByColor(cityId.toString(), color.getValue());
+        Integer lightCount = trafficLightMapper.getCityTrafficLightCountWithColor(cityId.toString(), color.getValue());
         log.info("获取城市[{}]交通信号灯颜色是[{}]的数量[{}]", cityId, color.getDescription(), lightCount);
         return lightCount;
     }

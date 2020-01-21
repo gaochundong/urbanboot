@@ -8,7 +8,7 @@
         SELECT 666
     </select>
 
-    <select id="getCityTrafficLightCountByColor" resultType="Integer">
+    <select id="getCityTrafficLightCountWithColor" resultType="Integer">
         SELECT 222
     </select>
 
