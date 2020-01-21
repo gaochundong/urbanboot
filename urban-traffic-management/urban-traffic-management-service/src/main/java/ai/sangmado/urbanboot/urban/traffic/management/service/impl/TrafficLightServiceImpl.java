@@ -1,20 +1,29 @@
 package ai.sangmado.urbanboot.urban.traffic.management.service.impl;
 
+import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLightColor;
 import ai.sangmado.urbanboot.urban.traffic.management.mapper.TrafficLightMapper;
 import ai.sangmado.urbanboot.urban.traffic.management.service.TrafficLightService;
-import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLightColor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+/**
+ * 交通信号灯服务
+ */
 @Slf4j
 @Service
 public class TrafficLightServiceImpl implements TrafficLightService {
     @Autowired
     private TrafficLightMapper trafficLightMapper;
 
+    /**
+     * 获取指定城市交通信号灯数量
+     *
+     * @param cityId 城市ID
+     * @return 交通信号灯数量
+     */
     @Override
     public Integer getCityTrafficLightCount(UUID cityId) {
         if (cityId == null) {
@@ -26,6 +35,13 @@ public class TrafficLightServiceImpl implements TrafficLightService {
         return lightCount;
     }
 
+    /**
+     * 获取指定城市指定颜色的交通信号灯数量
+     *
+     * @param cityId 城市ID
+     * @param color  信号灯颜色
+     * @return 信号灯数量
+     */
     @Override
     public Integer getCityTrafficLightCountByColor(UUID cityId, TrafficLightColor color) {
         if (cityId == null) {

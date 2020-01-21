@@ -1,8 +1,8 @@
 package ai.sangmado.urbanboot.urban.traffic.management.controller;
 
-import ai.sangmado.urbanboot.urban.traffic.management.service.TrafficLightService;
 import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLightColor;
 import ai.sangmado.urbanboot.urban.traffic.management.exception.BadRequestException;
+import ai.sangmado.urbanboot.urban.traffic.management.service.TrafficLightService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
@@ -14,14 +14,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
+/**
+ * 城市交通信号灯API服务
+ */
 @Slf4j
 @RestController
 public class TrafficLightController {
     @Autowired
     private TrafficLightService trafficLightService;
 
+    /**
+     * 查询城市信号灯数量
+     *
+     * @param cityId 城市ID
+     * @param color  信号灯颜色(可选)
+     * @return 信号灯数量
+     */
     @ApiOperation("查询城市信号灯数量")
-    @GetMapping(path = "/urbanboot/cities/{cityId}/traffic-lights-count", produces = "application/json")
+    @GetMapping(path = "/urban/cities/{cityId}/traffic-lights-count", produces = "application/json")
     public Integer getCityTrafficLightCount(
             @PathVariable("cityId") @ApiParam(value = "城市ID") UUID cityId,
             @RequestParam(value = "color", required = false) @ApiParam(value = "信号灯颜色") String color) {
