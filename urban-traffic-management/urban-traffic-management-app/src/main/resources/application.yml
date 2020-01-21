@@ -92,4 +92,7 @@ springfox:
     auto-startup: true
     swagger:
       v2:
-        path: /urban-boot/urban-management/api-docs
+        path: /urban/traffic/api-docs
+    service:
+      title: Urban Traffic Management Service
+      description: 城市交通管理服务

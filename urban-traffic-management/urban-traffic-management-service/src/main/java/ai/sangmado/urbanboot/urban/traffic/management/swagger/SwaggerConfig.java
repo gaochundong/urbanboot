@@ -1,6 +1,7 @@
 package ai.sangmado.urbanboot.urban.traffic.management.swagger;
 
 import com.google.common.base.Predicates;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,10 @@ import java.util.ArrayList;
 
 @Configuration
 public class SwaggerConfig {
+    @Value("${springfox.documentation.service.title}")
+    private String serviceTitle;
+    @Value("${springfox.documentation.service.description}")
+    private String serviceDescription;
 
     @Bean
     @SuppressWarnings("Guava")
@@ -28,10 +33,10 @@ public class SwaggerConfig {
                 .build();
     }
 
-    private static ApiInfo buildApiInfo() {
+    private ApiInfo buildApiInfo() {
         return new ApiInfo(
-                "Urban Traffic Management Service",
-                "城市交通管理服务",
+                serviceTitle,
+                serviceDescription,
                 null,
                 null,
                 null,

@@ -1,13 +1,13 @@
 info:
   app:
-    name: urban-management-app
+    name: urban-traffic-management-app
     vendor: Chundong Gao
     division: Chundong Gao
     category: urbanboot
 
 spring:
   application:
-    name: urban-management-app
+    name: urban-traffic-management-app
   cloud:
     consul:
       enabled: false
@@ -22,7 +22,7 @@ spring:
         enabled: true
         prefix: configuration-apps
         defaultContext: configuration-common
-        name: urban-management-app/application
+        name: urban-traffic-management-app/application
         format: FILES
         profileSeparator: '::'
         failFast: true
@@ -37,8 +37,8 @@ spring:
           register-management: true
       discovery:
         enabled: true
-        service-name: urban-management-app
-        tags: category=urbanboot, name=urban-management-app
+        service-name: urban-traffic-management-app
+        tags: category=urbanboot, name=urban-traffic-management-app
         scheme: http
         fail-fast: true
         prefer-ip-address: true
@@ -53,12 +53,12 @@ spring:
       enabled: false
       config:
         enabled: false
-        name: urban-management-app
+        name: urban-traffic-management-app
         enableApi: false
         paths: /opt/urbanboot/urban-management/config/k8s/config-map/volume-name.yml
       secrets:
         enabled: false
-        name: urban-management-app
+        name: urban-traffic-management-app
         enableApi: false
         paths: /opt/urbanboot/urban-management/config/k8s/secrets/volume-name.yml
       reload:
@@ -70,7 +70,7 @@ spring:
         period: 15000
       discovery:
         enabled: true
-        service-name: urban-management-app
+        service-name: urban-traffic-management-app
         all-namespaces: true
       ribbon:
         enabled: true
