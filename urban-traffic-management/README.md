@@ -2,9 +2,9 @@
 
 城市交通管理系统
 
-- contract 服务企业
+- contract 服务契约
 - service  服务实现
-- app      应用程序
+- app      应用程序托管
 
 ## 接口测试
 
