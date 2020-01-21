@@ -30,8 +30,8 @@ public class SwaggerConfig {
 
     private static ApiInfo buildApiInfo() {
         return new ApiInfo(
-                "Urban Management Service",
-                "城市大脑服务",
+                "Urban Traffic Management Service",
+                "城市交通管理服务",
                 null,
                 null,
                 null,
