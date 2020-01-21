@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ai.sangmado.urbanboot.urban.traffic.management.mapper.TrafficLightMapper">
+
+    <select id="getCityTrafficLightCount" resultType="Integer">
+        SELECT 666
+    </select>
+
+    <select id="getCityTrafficLightCountByColor" resultType="Integer">
+        SELECT 222
+    </select>
+
+</mapper>

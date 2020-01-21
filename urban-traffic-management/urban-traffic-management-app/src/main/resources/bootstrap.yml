@@ -1,0 +1,78 @@
+info:
+  app:
+    name: urban-management-app
+    vendor: Chundong Gao
+    division: Chundong Gao
+    category: urbanboot
+
+spring:
+  application:
+    name: urban-management-app
+  cloud:
+    consul:
+      enabled: false
+      host: localhost
+      port: 8500
+      scheme: http
+      retry:
+        initial-interval: 1000
+        max-interval: 5000
+        max-attempts: 6
+      config:
+        enabled: true
+        prefix: configuration-apps
+        defaultContext: configuration-common
+        name: urban-management-app/application
+        format: FILES
+        profileSeparator: '::'
+        failFast: true
+        watch:
+          enabled: true
+          waitTime: 55
+          delay: 1000
+      service-registry:
+        auto-registration:
+          enabled: true
+          fail-fast: false
+          register-management: true
+      discovery:
+        enabled: true
+        service-name: urban-management-app
+        tags: category=urbanboot, name=urban-management-app
+        scheme: http
+        fail-fast: true
+        prefer-ip-address: true
+        health-check-path: /health
+        health-check-interval: 10s
+        health-check-timeout: 5s
+        health-check-critical-timeout: 30m
+        heartbeat:
+          enabled: true
+          ttl-value: 30
+    kubernetes:
+      enabled: false
+      config:
+        enabled: false
+        name: urban-management-app
+        enableApi: false
+        paths: /opt/urbanboot/urban-management/config/k8s/config-map/volume-name.yml
+      secrets:
+        enabled: false
+        name: urban-management-app
+        enableApi: false
+        paths: /opt/urbanboot/urban-management/config/k8s/secrets/volume-name.yml
+      reload:
+        enabled: false
+        monitoring-config-maps: false
+        monitoring-secrets: false
+        strategy: refresh
+        mode: event
+        period: 15000
+      discovery:
+        enabled: true
+        service-name: urban-management-app
+        all-namespaces: true
+      ribbon:
+        enabled: true
+        mode: POD
+        cluster-domain: cluster.local

@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>fun.goodgoodstudy.bestpractice</groupId>
+    <groupId>ai.sangmado.urbanboot</groupId>
     <artifactId>urbanboot-parent</artifactId>
-    <version>0.0.2098-SNAPSHOT</version>
+    <version>1039.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>UrbanBoot Parent POM</name>
     <description>UrbanBoot Parent POM</description>
