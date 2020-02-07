@@ -66,19 +66,33 @@ mybatis:
 
 spring:
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${autoconf.spring.datasource.endpoint}:${autoconf.spring.datasource.port}/${autoconf.spring.datasource.dbschema}?characterEncoding=UTF-8&autoReconnect=true&useSSL=true
-    username: ${autoconf.spring.datasource.username}
-    password: ${autoconf.spring.datasource.password}
-    hikari:
-      pool-name: UrbanManagementAppHikariCP
-      connection-test-query: SELECT 1 FROM DUAL
-      connection-timeout: 30000
-      maximum-pool-size: 5
-      minimum-idle: 5
-      idle-timeout: 30000
-      auto-commit: false
+    url: jdbc:h2:mem:urbandb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 123
+    schema: classpath:database/h2/schema.sql
+    data: classpath:database/h2/data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+        trace: false
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://${autoconf.spring.datasource.endpoint}:${autoconf.spring.datasource.port}/${autoconf.spring.datasource.dbschema}?characterEncoding=UTF-8&autoReconnect=true&useSSL=true
+#    username: ${autoconf.spring.datasource.username}
+#    password: ${autoconf.spring.datasource.password}
+#    hikari:
+#      pool-name: AppHikariCP
+#      connection-test-query: SELECT 1 FROM DUAL
+#      connection-timeout: 30000
+#      maximum-pool-size: 5
+#      minimum-idle: 5
+#      idle-timeout: 30000
+#      auto-commit: false
   jackson:
     dateFormat: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
     timeZone: GMT

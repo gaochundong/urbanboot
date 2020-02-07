@@ -9,6 +9,7 @@ import java.util.Map;
 
 @Getter
 public enum TrafficLightColor {
+    Unknown(0, "未知"),
     Red(1, "红"),
     Yellow(2, "黄"),
     Green(3, "绿");

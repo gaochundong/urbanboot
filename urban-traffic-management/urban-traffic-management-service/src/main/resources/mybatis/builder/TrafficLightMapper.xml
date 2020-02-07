@@ -4,12 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ai.sangmado.urbanboot.urban.traffic.management.mapper.TrafficLightMapper">
 
+    <select id="getCityTrafficLights" resultType="ai.sangmado.urbanboot.urban.traffic.management.entity.TrafficLightPO">
+        select * from city_traffic_light where city_id = #{cityId}
+    </select>
+
+    <select id="getCityTrafficLightsWithColor" resultType="ai.sangmado.urbanboot.urban.traffic.management.entity.TrafficLightPO">
+        select * from city_traffic_light where city_id = #{cityId} and light_color = #{color}
+    </select>
+
     <select id="getCityTrafficLightCount" resultType="Integer">
-        SELECT 666
+        select count(1) from city_traffic_light where city_id = #{cityId}
     </select>
 
     <select id="getCityTrafficLightCountWithColor" resultType="Integer">
-        SELECT 222
+        select count(1) from city_traffic_light where city_id = #{cityId} and light_color = #{color}
     </select>
 
 </mapper>

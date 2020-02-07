@@ -254,6 +254,12 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
 
+        <!--h2-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
         <!--modules-->
         <dependency>
             <groupId>ai.sangmado.urbanboot</groupId>

@@ -1,5 +1,6 @@
 package ai.sangmado.urbanboot.urban.traffic.management.controller;
 
+import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLight;
 import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLightColor;
 import ai.sangmado.urbanboot.urban.traffic.management.exception.BadRequestException;
 import ai.sangmado.urbanboot.urban.traffic.management.service.TrafficLightService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -46,6 +48,32 @@ public class TrafficLightController {
         } else {
             // 查询指定颜色信号灯
             return trafficLightService.getCityTrafficLightCountWithColor(cityId, colorType);
+        }
+    }
+
+    /**
+     * 查询城市信号灯列表
+     *
+     * @param cityId 城市ID
+     * @param color  信号灯颜色(可选)
+     * @return 信号灯列表
+     */
+    @ApiOperation("查询城市信号灯列表")
+    @GetMapping(path = "/urban/cities/{cityId}/traffic-lights", produces = "application/json")
+    public List<TrafficLight> getCityTrafficLights(
+            @PathVariable("cityId") @ApiParam(value = "城市ID") UUID cityId,
+            @RequestParam(value = "color", required = false) @ApiParam(value = "信号灯颜色") String color) {
+        if (cityId == null) {
+            throw new BadRequestException("城市ID不能为空");
+        }
+
+        TrafficLightColor colorType = TrafficLightColor.parse(color);
+        if (colorType == null) {
+            // 查询所有信号灯
+            return trafficLightService.getCityTrafficLights(cityId);
+        } else {
+            // 查询指定颜色信号灯
+            return trafficLightService.getCityTrafficLightsWithColor(cityId, colorType);
         }
     }
 }
