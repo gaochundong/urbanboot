@@ -4,6 +4,7 @@ import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLight;
 import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLightColor;
 import ai.sangmado.urbanboot.urban.traffic.management.exception.BadRequestException;
 import ai.sangmado.urbanboot.urban.traffic.management.service.TrafficLightService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
@@ -17,10 +18,11 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * 城市交通信号灯API服务
+ * 城市交通信号灯 REST API
  */
 @Slf4j
 @RestController
+@Api(tags = {"城市交通信号灯 REST API"})
 public class TrafficLightController {
     @Autowired
     private TrafficLightService trafficLightService;
