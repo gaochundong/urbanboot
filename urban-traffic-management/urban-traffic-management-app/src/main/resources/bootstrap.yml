@@ -73,6 +73,6 @@ spring:
         service-name: urban-traffic-management-app
         all-namespaces: true
       ribbon:
-        enabled: true
+        enabled: false
         mode: POD
         cluster-domain: cluster.local

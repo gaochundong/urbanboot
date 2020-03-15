@@ -32,9 +32,12 @@ ENTRYPOINT [ \
     "java", \
     "-server", \
     "-jar", \
-    "-Dserver.port=7200", \
     "-Xmn64M", \
     "-Xms64M", \
     "-Xmx1024M", \
+    "-Dserver.port=7200", \
+    "-Dspring.cloud.consul.enabled=false", \
+    "-Dspring.cloud.kubernetes.enabled=false", \
+    "-Dspring.cloud.kubernetes.ribbon.enabled=false", \
     "-Duser.dir=/opt/urbanboot/urban-traffic-management", \
     "/opt/urbanboot/urban-traffic-management/urban-traffic-management-app.jar"]

@@ -32,6 +32,22 @@ public enum ISO8601DateTime {
         return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMilliseconds), ZoneId.of("UTC"));
     }
 
+    public static long toEpochMilliseconds(LocalDateTime dateTime) {
+        return dateTime.atZone(ZoneId.of("UTC")).toInstant().toEpochMilli();
+    }
+
+    public static long toEpochSeconds(LocalDateTime dateTime) {
+        return dateTime.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond();
+    }
+
+    public static long currentMilliseconds() {
+        return Instant.now().toEpochMilli();
+    }
+
+    public static long currentEpochSeconds() {
+        return Instant.now().getEpochSecond();
+    }
+
     public static String formattedUtcNow() {
         return format(utcNow());
     }
