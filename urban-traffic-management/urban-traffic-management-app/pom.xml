@@ -5,11 +5,11 @@
     <parent>
         <groupId>ai.sangmado.urbanboot</groupId>
         <artifactId>urban-traffic-management</artifactId>
-        <version>1039.0-SNAPSHOT</version>
+        <version>1.0.1040-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>urban-traffic-management-app</artifactId>
-    <version>1039.0-SNAPSHOT</version>
+    <version>1.0.1040-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Urban Traffic Management Application</name>
     <description>Urban Traffic Management Application</description>
@@ -94,26 +94,6 @@
 
     <build>
         <plugins>
-            <!--            <plugin>-->
-            <!--                <groupId>com.alibaba.citrus.tool</groupId>-->
-            <!--                <artifactId>autoconfig-maven-plugin</artifactId>-->
-            <!--                <configuration>-->
-            <!--                    <charset>UTF-8</charset>-->
-            <!--                    <strict>true</strict>-->
-            <!--                    <skip>false</skip>-->
-            <!--                    <userProperties>${autoconfig.path}/${autoconfig.file}</userProperties>-->
-            <!--                    <exploding>true</exploding>-->
-            <!--                    <explodedDirectory>${project.build.outputDirectory}</explodedDirectory>-->
-            <!--                </configuration>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <phase>package</phase>-->
-            <!--                        <goals>-->
-            <!--                            <goal>autoconfig</goal>-->
-            <!--                        </goals>-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -147,46 +127,6 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>io.fabric8</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <extensions>true</extensions>-->
-<!--                <configuration>-->
-<!--                    <verbose>false</verbose>-->
-<!--                    <useColor>true</useColor>-->
-<!--                    <images>-->
-<!--                        <image>-->
-<!--                            <name>-->
-<!--                                ${project.artifactId}:${project.version}-->
-<!--                            </name>-->
-<!--                            <build>-->
-<!--                                <contextDir>${project.basedir}</contextDir>-->
-<!--                                <dockerFile>${project.basedir}/../docker/Dockerfile</dockerFile>-->
-<!--                                <tags>-->
-<!--                                    <tag>latest</tag>-->
-<!--                                    <tag>${project.version}</tag>-->
-<!--                                </tags>-->
-<!--                            </build>-->
-<!--                        </image>-->
-<!--                    </images>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>build-image</id>-->
-<!--                        <phase>install</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>build</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>push-image</id>-->
-<!--                        <phase>deploy</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>push</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
         </plugins>
     </build>
 

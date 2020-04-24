@@ -5,11 +5,11 @@
     <parent>
         <groupId>ai.sangmado.urbanboot</groupId>
         <artifactId>urban-traffic-management</artifactId>
-        <version>1039.0-SNAPSHOT</version>
+        <version>1.0.1040-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>urban-traffic-management-service</artifactId>
-    <version>1039.0-SNAPSHOT</version>
+    <version>1.0.1040-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Urban Traffic Management Service Layer</name>
     <description>Urban Traffic Management Service Layer</description>
@@ -33,6 +33,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.micrometer</groupId>
+                    <artifactId>micrometer-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!--web-->

@@ -40,7 +40,7 @@ public enum ISO8601DateTime {
         return dateTime.atZone(ZoneId.of("UTC")).toInstant().getEpochSecond();
     }
 
-    public static long currentMilliseconds() {
+    public static long currentEpochMilliseconds() {
         return Instant.now().toEpochMilli();
     }
 

@@ -1,10 +1,8 @@
 # Urban Boot
 
-An archetype project of spring boot.
+- 这是一个关于 Spring Boot 的脚手架项目，用于快速基于原型搭建可用项目，布局纯依据个人习惯。
 
-- 这是一个关于 Spring Boot 的脚手架项目，用于快速基于原型搭建可用项目，布局纯依据个人喜好。
-
-## autoconf setup
+## autoconf setup (optional)
 
 - Create a folder '~/autoconf/dev', then the maven plugin will put an antx.properties file within the folder.
 
@@ -14,7 +12,15 @@ An archetype project of spring boot.
 
 ## maven package
 
-- Just 'mvn package' or 'mvn package -Pprod'.
+- Just 'mvn package' or 'mvn package -Pdev'.
+
+## maven install
+
+- mvn clean install -U -Pdev
+
+## maven deploy
+
+- mvn clean install -U deploy -N -Pdev
 
 ## profile list
 
@@ -24,9 +30,3 @@ An archetype project of spring boot.
 - pre
 - beta
 - prod
-
-## ping
-
-- curl http://localhost:7200
-- curl http://localhost:7200/ping
-- curl http://localhost:7200/health
