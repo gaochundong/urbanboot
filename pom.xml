@@ -40,11 +40,16 @@
         <unirest-java.version>3.7.02</unirest-java.version>
         <json.version>20190722</json.version>
         <persistence-api.version>1.0.2</persistence-api.version>
+        <h2.version>1.4.200</h2.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
         <swagger-annotations.version>1.6.1</swagger-annotations.version>
         <commons-codec.version>1.14</commons-codec.version>
         <micrometer-registry-prometheus.version>1.4.1</micrometer-registry-prometheus.version>
-        <h2.version>1.4.200</h2.version>
+        <spring-cloud-starter-sleuth.version>2.1.7.RELEASE</spring-cloud-starter-sleuth.version>
+        <spring-cloud-starter-zipkin.version>2.1.7.RELEASE</spring-cloud-starter-zipkin.version>
+        <opentracing-spring-web-starter.version>3.0.1</opentracing-spring-web-starter.version>
+        <opentracing-spring-cloud-starter.version>0.5.3</opentracing-spring-cloud-starter.version>
+        <opentracing-spring-jaeger-starter.version>3.1.1</opentracing-spring-jaeger-starter.version>
 
         <!--aws-->
         <aws-java-sdk-bom.version>1.11.673</aws-java-sdk-bom.version>
@@ -181,6 +186,13 @@
                 <version>${persistence-api.version}</version>
             </dependency>
 
+            <!--h2-->
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+
             <!--guava-->
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -303,11 +315,50 @@
                 <version>${micrometer-registry-prometheus.version}</version>
             </dependency>
 
-            <!--h2-->
+            <!--sleuth-->
             <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>${h2.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-sleuth</artifactId>
+                <version>${spring-cloud-starter-sleuth.version}</version>
+            </dependency>
+
+            <!--zipkin-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${spring-cloud-starter-zipkin.version}</version>
+            </dependency>
+
+            <!--opentracing-->
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-spring-web-starter</artifactId>
+                <version>${opentracing-spring-web-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-spring-cloud-feign-starter</artifactId>
+                <version>${opentracing-spring-cloud-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-spring-cloud-hystrix-starter</artifactId>
+                <version>${opentracing-spring-cloud-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-spring-cloud-gateway-starter</artifactId>
+                <version>${opentracing-spring-cloud-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-spring-cloud-jdbc-starter</artifactId>
+                <version>${opentracing-spring-cloud-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentracing.contrib</groupId>
+                <artifactId>opentracing-spring-jaeger-starter</artifactId>
+                <version>${opentracing-spring-jaeger-starter.version}</version>
             </dependency>
 
             <!--aws-->

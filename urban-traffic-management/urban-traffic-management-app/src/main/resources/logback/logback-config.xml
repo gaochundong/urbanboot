@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <springProperty name="SPRING_APPLICATION_NAME" source="spring.application.name" scope="context"/>
     <property name="LOG_PATH" value="${user.dir}/logs"/>
+    <property name="LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [${SPRING_APPLICATION_NAME:-}] [%X{X-B3-TraceId:-}] [%X{X-B3-SpanId:-}] [${PID:-}] [%thread] [%-5level] %logger{36} - %msg%n%ex{full}"/>
 
     <appender name="console-logging" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex{full}
-            </Pattern>
+            <Pattern>${LOG_PATTERN}</Pattern>
         </layout>
     </appender>
 
@@ -18,9 +19,7 @@
         <file>${LOG_PATH}/app.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <charset>UTF-8</charset>
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex{5}
-            </Pattern>
+            <Pattern>${LOG_PATTERN}</Pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_PATH}/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -40,9 +39,7 @@
         <file>${LOG_PATH}/error.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <charset>UTF-8</charset>
-            <Pattern>
-                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex{full}
-            </Pattern>
+            <Pattern>${LOG_PATTERN}</Pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_PATH}/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>

@@ -187,6 +187,12 @@
             <artifactId>persistence-api</artifactId>
         </dependency>
 
+        <!--h2-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
         <!--guava-->
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -260,10 +266,10 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
 
-        <!--h2-->
+        <!--sleuth-->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
 
         <!--modules-->
