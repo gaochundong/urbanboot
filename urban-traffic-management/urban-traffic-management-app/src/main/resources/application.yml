@@ -23,7 +23,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: consul,health,info,metrics,prometheus,shutdown
+        include: health,info,metrics,prometheus,shutdown
   endpoint:
     consul:
       enabled: true
