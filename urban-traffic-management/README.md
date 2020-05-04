@@ -8,8 +8,8 @@
 
 ## Docker
 
-- docker build -t urban-traffic-management:latest --file ./urban-traffic-management/docker/Dockerfile .
-- docker run -it -p 7200:7200/tcp urban-traffic-management:latest sh
+- docker build -t urban-traffic-management-app:latest --file ./urban-traffic-management/docker/Dockerfile .
+- docker run -it -p 7200:7200/tcp urban-traffic-management-app:latest sh
 - docker images
 - docker ps
 - docker exec -it c5c92af9ced6 sh
