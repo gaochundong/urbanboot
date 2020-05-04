@@ -1,8 +1,8 @@
 info:
   app:
     name: urban-traffic-management-app
-    vendor: Chundong Gao
-    division: Chundong Gao
+    vendor: sangmado
+    division: urban
     category: urbanboot
 
 spring:
