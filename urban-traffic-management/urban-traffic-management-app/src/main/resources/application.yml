@@ -1,7 +1,17 @@
 server:
   port: 7200
+  server-header: UrbanBoot
+  use-forward-headers: true
+  max-http-header-size: 8KB
   tomcat:
     basedir: ./
+    accept-count: 100
+    max-threads: 200
+    min-spare-threads: 10
+    background-processor-delay: 10s
+    max-connections: 8192
+    max-http-form-post-size: 2MB
+    max-swallow-size: 2MB
     accesslog:
       enabled: true
       directory: logs
@@ -13,6 +23,37 @@ server:
       rename-on-rotate: true
       buffered: true
       request-attributes-enabled: true
+  jetty:
+    acceptors: -1
+    selectors: -1
+    max-http-form-post-size: 2MB
+    accesslog:
+      enabled: true
+      log-cookies: false
+      log-latency: true
+      log-server: true
+      time-zone: GMT
+      date-format: 'yyyy-MM-dd HH:mm:ss.SSS'
+      extended-format: true
+      append: true
+      file-date-format: yyyy_MM_dd
+      filename: logs/access-yyyy_MM_dd.log
+      retention-period: 7
+  undertow:
+    io-threads: 16
+    worker-threads: 256
+    buffer-size: 1024
+    buffers-per-region: 1024
+    direct-buffers: true
+    eager-filter-init: true
+    max-http-post-size: 2MB
+    accesslog:
+      enabled: true
+      dir: logs
+      pattern: '%{time,yyyy-MM-dd HH:mm:ss.SSS z} %m %U "%q" %s %D %b %{i,X-B3-TraceId} %{i,X-B3-SpanId} %{i,Referer} "%{i,User-Agent}" %l %u "%I" "%v" %a'
+      prefix: access
+      suffix: .log
+      rotate: true
   error:
     include-exception: false
     include-stacktrace: never

@@ -22,7 +22,7 @@
         <autoconfig.strict>true</autoconfig.strict>
         <autoconfig.path>${user.home}/autoconf/${devModel}</autoconfig.path>
         <autoconfig.file>antx.properties</autoconfig.file>
-        
+
         <!--dependencies-->
         <lombok.version>1.18.8</lombok.version>
         <spring-boot-starter.version>2.1.13.RELEASE</spring-boot-starter.version>
@@ -91,6 +91,27 @@
                 <version>${spring-boot-starter.version}</version>
             </dependency>
 
+            <!--web-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter.version}</version>
+            </dependency>
+
+            <!--jetty-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jetty</artifactId>
+                <version>${spring-boot-starter.version}</version>
+            </dependency>
+
+            <!--undertow-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-undertow</artifactId>
+                <version>${spring-boot-starter.version}</version>
+            </dependency>
+
             <!--actuator-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -102,13 +123,6 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
-                <version>${spring-boot-starter.version}</version>
-            </dependency>
-
-            <!--web-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring-boot-starter.version}</version>
             </dependency>
 
@@ -153,13 +167,6 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-kubernetes-config</artifactId>
                 <version>${spring-cloud-starter-kubernetes.version}</version>
-            </dependency>
-
-            <!--spring-cloud-bus-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-bus</artifactId>
-                <version>${spring-cloud-starter.version}</version>
             </dependency>
 
             <!--mybatis-->
