@@ -98,6 +98,13 @@
                 <version>${spring-boot-starter.version}</version>
             </dependency>
 
+            <!--tomcat-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+                <version>${spring-boot-starter.version}</version>
+            </dependency>
+
             <!--jetty-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

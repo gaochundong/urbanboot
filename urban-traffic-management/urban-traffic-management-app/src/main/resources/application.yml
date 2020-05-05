@@ -3,6 +3,11 @@ server:
   server-header: UrbanBoot
   use-forward-headers: true
   max-http-header-size: 8KB
+  error:
+    include-exception: false
+    include-stacktrace: never
+    whitelabel:
+      enabled: true
   tomcat:
     basedir: ./
     accept-count: 100
@@ -15,7 +20,7 @@ server:
     accesslog:
       enabled: true
       directory: logs
-      pattern: '%h %l %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i"'
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS z}t "%r" "%{User-Agent}i" "%h" "%a" "%A" "%{Referer}i" "%I" %b %s %Dms'
       prefix: access
       file-date-format: .yyyy-MM-dd
       suffix: .log
@@ -50,15 +55,10 @@ server:
     accesslog:
       enabled: true
       dir: logs
-      pattern: '%{time,yyyy-MM-dd HH:mm:ss.SSS z} %m %U "%q" %s %D %b %{i,X-B3-TraceId} %{i,X-B3-SpanId} %{i,Referer} "%{i,User-Agent}" %l %u "%I" "%v" %a'
+      pattern: '%{time,yyyy-MM-dd HH:mm:ss.SSS z} %m %U "%q" %s %D %b %{i,Referer} "%{i,User-Agent}" %l %u "%I" "%v" %a'
       prefix: access
       suffix: .log
       rotate: true
-  error:
-    include-exception: false
-    include-stacktrace: never
-    whitelabel:
-      enabled: true
 
 management:
   endpoints:
