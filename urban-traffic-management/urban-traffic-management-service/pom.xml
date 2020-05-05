@@ -291,6 +291,22 @@
                     <groupId>org.springframework</groupId>
                     <artifactId>spring-aop</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>io.zipkin.brave</groupId>
+                    <artifactId>brave-instrumentation-spring-rabbit</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.zipkin.brave</groupId>
+                    <artifactId>brave-instrumentation-messaging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.zipkin.brave</groupId>
+                    <artifactId>brave-instrumentation-kafka-clients</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.zipkin.brave</groupId>
+                    <artifactId>brave-instrumentation-jms</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
