@@ -16,7 +16,7 @@ public interface TrafficLightConverter {
     default TrafficLight convertTrafficLight(TrafficLightPO from) {
         TrafficLight to = new TrafficLight();
 
-        to.setCityId(convertUUID(from.getCityId()));
+        to.setCityId(from.getCityId());
         to.setId(convertUUID(from.getLightId()));
         to.setName(from.getLightName());
         to.setColor(TrafficLightColor.cast(from.getLightColor()));

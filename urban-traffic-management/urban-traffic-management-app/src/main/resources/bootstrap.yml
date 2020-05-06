@@ -9,6 +9,11 @@ spring:
   application:
     name: urban-traffic-management-app
   cloud:
+    service-registry:
+      auto-registration:
+        enabled: true
+        fail-fast: false
+        register-management: true
     consul:
       enabled: false
       host: localhost
@@ -30,25 +35,29 @@ spring:
           enabled: true
           waitTime: 55
           delay: 1000
-      service-registry:
-        auto-registration:
-          enabled: true
-          fail-fast: false
-          register-management: true
       discovery:
         enabled: true
         service-name: urban-traffic-management-app
         tags: category=urbanboot, name=urban-traffic-management-app
+        default-zone-metadata-name: zone
         scheme: http
         fail-fast: true
         prefer-ip-address: true
+        catalog-services-watch-delay: 1000
+        catalog-services-watch-timeout: 2
+        register: true
+        deregister: true
+        register-health-check: true
         health-check-path: /health
         health-check-interval: 10s
         health-check-timeout: 5s
         health-check-critical-timeout: 30m
+        lifecycle:
+          enabled: true
         heartbeat:
           enabled: true
           ttl-value: 30
+          ttl-unit: s
     kubernetes:
       enabled: false
       config:

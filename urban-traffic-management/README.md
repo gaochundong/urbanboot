@@ -8,11 +8,15 @@
 
 ## Docker
 
+- cd urbanboot
 - docker build -t urban-traffic-management-app:latest --file ./urban-traffic-management/docker/Dockerfile .
-- docker run -it -p 7200:7200/tcp urban-traffic-management-app:latest sh
 - docker images
+- docker rmi --force $(docker images | grep "^<none>" | awk '{print $3}') 
+- docker run --name urban-traffic-management-app -it -p 7200:7200/tcp urban-traffic-management-app:latest sh
 - docker ps
-- docker exec -it c5c92af9ced6 sh
+- docker exec -it urban-traffic-management-app sh
+- docker exec -it urban-traffic-management-app sh -c "cat /opt/urbanboot/urban-traffic-management/logs/access.log"
+- docker rm $(docker ps -a -q)
 
 ## H2 Database
 
@@ -30,7 +34,7 @@
 
 ## API Testing
 
-- curl http://localhost:7200/urban/cities/903b5e45-bfe4-4549-804a-48f3e2d12f6b/traffic-lights-count
-- curl http://localhost:7200/urban/cities/903b5e45-bfe4-4549-804a-48f3e2d12f6b/traffic-lights-count?color=red
-- curl http://localhost:7200/urban/cities/903b5e45-bfe4-4549-804a-48f3e2d12f6b/traffic-lights-count?color=yellow
-- curl http://localhost:7200/urban/cities/903b5e45-bfe4-4549-804a-48f3e2d12f6b/traffic-lights-count?color=green
+- curl http://localhost:7200/urban/traffic/cities/2101/traffic-lights-count
+- curl http://localhost:7200/urban/traffic/cities/2101/traffic-lights-count?color=red
+- curl http://localhost:7200/urban/traffic/cities/2101/traffic-lights-count?color=yellow
+- curl http://localhost:7200/urban/traffic/cities/2101/traffic-lights-count?color=green

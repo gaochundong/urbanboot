@@ -1,7 +1,7 @@
 # Build the application artifact
 FROM maven:3.6.3-jdk-8 as build
-COPY . /urbanboot
-WORKDIR /urbanboot/urban-traffic-management
+COPY . /urbanboot/
+WORKDIR /urbanboot/urban-traffic-management/
 
 RUN mvn clean package
 

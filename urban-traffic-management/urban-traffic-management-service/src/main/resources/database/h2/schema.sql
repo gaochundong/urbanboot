@@ -1,13 +1,3 @@
-drop table if exists city;
-
-create table city
-(
-  id BIGINT(20) NOT NULL COMMENT '自增ID',
-  city_id VARCHAR(36) NOT NULL COMMENT '城市ID',
-  city_name VARCHAR(255) NOT NULL COMMENT '城市名称',
-  PRIMARY KEY (id)
-);
-
 drop table if exists city_traffic_light;
 
 create table city_traffic_light

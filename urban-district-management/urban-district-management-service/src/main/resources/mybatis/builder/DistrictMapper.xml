@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ai.sangmado.urbanboot.urban.district.management.mapper.DistrictMapper">
+
+    <select id="getDistrict" resultType="ai.sangmado.urbanboot.urban.district.management.entity.DistrictPO">
+        select * from district where id = #{districtId} limit 1
+    </select>
+
+    <select id="getChildDistricts" resultType="ai.sangmado.urbanboot.urban.district.management.entity.DistrictPO">
+        select * from district where parent_id = #{parentId} order by pinyin
+    </select>
+
+    <select id="getDistrictsByLevel" resultType="ai.sangmado.urbanboot.urban.district.management.entity.DistrictPO">
+        select * from district where level = #{level} order by pinyin
+    </select>
+
+</mapper>

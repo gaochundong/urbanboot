@@ -4,15 +4,14 @@ import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLight;
 import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLightColor;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface TrafficLightService {
 
-    List<TrafficLight> getCityTrafficLights(UUID cityId);
+    List<TrafficLight> getCityTrafficLights(Long cityId);
 
-    List<TrafficLight> getCityTrafficLightsWithColor(UUID cityId, TrafficLightColor color);
+    List<TrafficLight> getCityTrafficLightsWithColor(Long cityId, TrafficLightColor color);
 
-    Integer getCityTrafficLightCount(UUID cityId);
+    Integer getCityTrafficLightCount(Long cityId);
 
-    Integer getCityTrafficLightCountWithColor(UUID cityId, TrafficLightColor color);
+    Integer getCityTrafficLightCountWithColor(Long cityId, TrafficLightColor color);
 }

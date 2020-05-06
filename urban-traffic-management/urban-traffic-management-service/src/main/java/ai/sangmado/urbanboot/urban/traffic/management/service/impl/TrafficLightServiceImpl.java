@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * 交通信号灯服务
@@ -31,12 +30,12 @@ public class TrafficLightServiceImpl implements TrafficLightService {
      * @return 信号灯列表
      */
     @Override
-    public List<TrafficLight> getCityTrafficLights(UUID cityId) {
+    public List<TrafficLight> getCityTrafficLights(Long cityId) {
         if (cityId == null) {
             throw new IllegalArgumentException("城市ID不能为空");
         }
 
-        List<TrafficLightPO> lights = trafficLightMapper.getCityTrafficLights(cityId.toString());
+        List<TrafficLightPO> lights = trafficLightMapper.getCityTrafficLights(cityId);
         log.info("获取城市[{}]交通信号灯列表[{}]", cityId, lights.size());
         return trafficLightConverter.convertTrafficLightList(lights);
     }
@@ -49,7 +48,7 @@ public class TrafficLightServiceImpl implements TrafficLightService {
      * @return 信号灯列表
      */
     @Override
-    public List<TrafficLight> getCityTrafficLightsWithColor(UUID cityId, TrafficLightColor color) {
+    public List<TrafficLight> getCityTrafficLightsWithColor(Long cityId, TrafficLightColor color) {
         if (cityId == null) {
             throw new IllegalArgumentException("城市ID不能为空");
         }
@@ -57,7 +56,7 @@ public class TrafficLightServiceImpl implements TrafficLightService {
             throw new IllegalArgumentException("信号灯颜色未指定");
         }
 
-        List<TrafficLightPO> lights = trafficLightMapper.getCityTrafficLightsWithColor(cityId.toString(), color.getValue());
+        List<TrafficLightPO> lights = trafficLightMapper.getCityTrafficLightsWithColor(cityId, color.getValue());
         log.info("获取城市[{}]交通信号灯颜色是[{}]的列表[{}]", cityId, color.getDescription(), lights.size());
         return trafficLightConverter.convertTrafficLightList(lights);
     }
@@ -69,12 +68,12 @@ public class TrafficLightServiceImpl implements TrafficLightService {
      * @return 交通信号灯数量
      */
     @Override
-    public Integer getCityTrafficLightCount(UUID cityId) {
+    public Integer getCityTrafficLightCount(Long cityId) {
         if (cityId == null) {
             throw new IllegalArgumentException("城市ID不能为空");
         }
 
-        Integer lightCount = trafficLightMapper.getCityTrafficLightCount(cityId.toString());
+        Integer lightCount = trafficLightMapper.getCityTrafficLightCount(cityId);
         log.info("获取城市[{}]交通信号灯数量[{}]", cityId, lightCount);
         return lightCount;
     }
@@ -87,7 +86,7 @@ public class TrafficLightServiceImpl implements TrafficLightService {
      * @return 信号灯数量
      */
     @Override
-    public Integer getCityTrafficLightCountWithColor(UUID cityId, TrafficLightColor color) {
+    public Integer getCityTrafficLightCountWithColor(Long cityId, TrafficLightColor color) {
         if (cityId == null) {
             throw new IllegalArgumentException("城市ID不能为空");
         }
@@ -95,7 +94,7 @@ public class TrafficLightServiceImpl implements TrafficLightService {
             throw new IllegalArgumentException("信号灯颜色未指定");
         }
 
-        Integer lightCount = trafficLightMapper.getCityTrafficLightCountWithColor(cityId.toString(), color.getValue());
+        Integer lightCount = trafficLightMapper.getCityTrafficLightCountWithColor(cityId, color.getValue());
         log.info("获取城市[{}]交通信号灯颜色是[{}]的数量[{}]", cityId, color.getDescription(), lightCount);
         return lightCount;
     }

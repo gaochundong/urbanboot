@@ -9,11 +9,11 @@ import java.util.List;
 @Mapper
 public interface TrafficLightMapper {
 
-    List<TrafficLightPO> getCityTrafficLights(@Param("cityId") String cityId);
+    List<TrafficLightPO> getCityTrafficLights(@Param("cityId") Long cityId);
 
-    List<TrafficLightPO> getCityTrafficLightsWithColor(@Param("cityId") String cityId, @Param("color") Integer color);
+    List<TrafficLightPO> getCityTrafficLightsWithColor(@Param("cityId") Long cityId, @Param("color") Integer color);
 
-    Integer getCityTrafficLightCount(@Param("cityId") String cityId);
+    Integer getCityTrafficLightCount(@Param("cityId") Long cityId);
 
-    Integer getCityTrafficLightCountWithColor(@Param("cityId") String cityId, @Param("color") Integer color);
+    Integer getCityTrafficLightCountWithColor(@Param("cityId") Long cityId, @Param("color") Integer color);
 }

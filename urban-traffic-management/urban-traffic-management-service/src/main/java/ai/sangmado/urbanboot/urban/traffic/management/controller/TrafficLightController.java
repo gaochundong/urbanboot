@@ -35,9 +35,9 @@ public class TrafficLightController {
      * @return 信号灯数量
      */
     @ApiOperation("查询城市信号灯数量")
-    @GetMapping(path = "/urban/cities/{cityId}/traffic-lights-count", produces = "application/json")
+    @GetMapping(path = "/urban/traffic/cities/{cityId}/traffic-lights-count", produces = "application/json")
     public Integer getCityTrafficLightCount(
-            @PathVariable("cityId") @ApiParam(value = "城市ID") UUID cityId,
+            @PathVariable("cityId") @ApiParam(value = "城市ID") Long cityId,
             @RequestParam(value = "color", required = false) @ApiParam(value = "信号灯颜色") String color) {
         if (cityId == null) {
             throw new BadRequestException("城市ID不能为空");
@@ -61,9 +61,9 @@ public class TrafficLightController {
      * @return 信号灯列表
      */
     @ApiOperation("查询城市信号灯列表")
-    @GetMapping(path = "/urban/cities/{cityId}/traffic-lights", produces = "application/json")
+    @GetMapping(path = "/urban/traffic/cities/{cityId}/traffic-lights", produces = "application/json")
     public List<TrafficLight> getCityTrafficLights(
-            @PathVariable("cityId") @ApiParam(value = "城市ID") UUID cityId,
+            @PathVariable("cityId") @ApiParam(value = "城市ID") Long cityId,
             @RequestParam(value = "color", required = false) @ApiParam(value = "信号灯颜色") String color) {
         if (cityId == null) {
             throw new BadRequestException("城市ID不能为空");
