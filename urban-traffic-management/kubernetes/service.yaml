@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: urbanboot-traffic-management-service
+  namespace: urbanboot
+  labels:
+    service: urbanboot-traffic-management-service
+spec:
+  type: ClusterIP
+  selector:
+    app: urbanboot-traffic-management-app
+  ports:
+    - name: tcp
+      port: 7200
+      protocol: TCP
+      targetPort: 7200

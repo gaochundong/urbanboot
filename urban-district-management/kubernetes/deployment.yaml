@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: urbanboot-district-management-app
+  namespace: urbanboot
+  labels:
+    app: urbanboot-district-management-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: urbanboot-district-management-app
+  template:
+    metadata:
+      labels:
+        app: urbanboot-district-management-app
+    spec:
+      containers:
+        - name: urbanboot-district-management-app
+          image: docker.io/library/urban-district-management-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 7200
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+            limits:
+              cpu: 1000m
+              memory: 1024Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 7200
+              scheme: HTTP
+            initialDelaySeconds: 20
+            failureThreshold: 60
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 2
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 7200
+              scheme: HTTP
+            initialDelaySeconds: 30
+            failureThreshold: 60
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 2

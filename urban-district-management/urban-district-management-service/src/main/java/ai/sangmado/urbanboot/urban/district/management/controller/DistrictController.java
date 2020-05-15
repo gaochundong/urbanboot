@@ -1,6 +1,9 @@
 package ai.sangmado.urbanboot.urban.district.management.controller;
 
+import ai.sangmado.urbanboot.urban.district.management.contract.City;
 import ai.sangmado.urbanboot.urban.district.management.contract.District;
+import ai.sangmado.urbanboot.urban.district.management.contract.Province;
+import ai.sangmado.urbanboot.urban.district.management.exception.InternalServerErrorException;
 import ai.sangmado.urbanboot.urban.district.management.service.DistrictService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -10,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -24,50 +28,126 @@ public class DistrictController {
     private DistrictService districtService;
 
     /**
-     * 根据区划ID获取区划信息
+     * 查询省级区划列表
      *
-     * @return 区划
+     * @return 区划列表
      */
-    @ApiOperation("根据区划ID获取区划信息")
-    @GetMapping(path = "/urban/district/districts/{districtId}", produces = "application/json")
-    public District getDistrict(
-            @PathVariable("districtId") @ApiParam(value = "区划ID") Long districtId) {
-        return districtService.getDistrict(districtId);
+    @ApiOperation("查询省级区划列表")
+    @GetMapping(path = "/urban/district/provinces", produces = "application/json")
+    public List<Province> getProvinces() {
+        try {
+            return districtService.getProvinces();
+        } catch (ResponseStatusException ex) {
+            log.error(ex.getMessage(), ex);
+            throw ex;
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+            throw new InternalServerErrorException();
+        }
     }
 
     /**
      * 查询省级区划
      *
-     * @return 区划列表
+     * @param provinceId 省ID
+     * @return 省级区划
      */
     @ApiOperation("查询省级区划")
-    @GetMapping(path = "/urban/district/provinces", produces = "application/json")
-    public List<District> getProvinces() {
-        final Integer provinceDistrictLevel = 0;
-        return districtService.getDistrictsByLevel(provinceDistrictLevel);
-    }
-
-    /**
-     * 查询省级区划下辖市级区划
-     *
-     * @return 区划列表
-     */
-    @ApiOperation("查询省级区划下辖市级区划")
-    @GetMapping(path = "/urban/district/provinces/{provinceId}/cities", produces = "application/json")
-    public List<District> getProvinceCities(
+    @GetMapping(path = "/urban/district/provinces/{provinceId}", produces = "application/json")
+    public Province getProvinceById(
             @PathVariable("provinceId") @ApiParam(value = "省ID") Long provinceId) {
-        return districtService.getChildDistricts(provinceId);
+        try {
+            return districtService.getProvinceById(provinceId);
+        } catch (ResponseStatusException ex) {
+            log.error(ex.getMessage(), ex);
+            throw ex;
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+            throw new InternalServerErrorException();
+        }
     }
 
     /**
-     * 查询市级区划下辖区级区划
+     * 查询省级区划下辖市级区划列表
      *
+     * @param provinceId 省ID
      * @return 区划列表
      */
-    @ApiOperation("查询市级区划下辖区级区划")
+    @ApiOperation("查询省级区划下辖市级区划列表")
+    @GetMapping(path = "/urban/district/provinces/{provinceId}/cities", produces = "application/json")
+    public List<City> getProvinceCities(
+            @PathVariable("provinceId") @ApiParam(value = "省ID") Long provinceId) {
+        try {
+            return districtService.getProvinceCities(provinceId);
+        } catch (ResponseStatusException ex) {
+            log.error(ex.getMessage(), ex);
+            throw ex;
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+            throw new InternalServerErrorException();
+        }
+    }
+
+    /**
+     * 查询市级区划
+     *
+     * @param cityId 市ID
+     * @return 市级区划
+     */
+    @ApiOperation("查询市级区划")
+    @GetMapping(path = "/urban/district/cities/{cityId}", produces = "application/json")
+    public City getCityById(
+            @PathVariable("cityId") @ApiParam(value = "市ID") Long cityId) {
+        try {
+            return districtService.getCityById(cityId);
+        } catch (ResponseStatusException ex) {
+            log.error(ex.getMessage(), ex);
+            throw ex;
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+            throw new InternalServerErrorException();
+        }
+    }
+
+    /**
+     * 查询市级区划下辖区级区划列表
+     *
+     * @param cityId 市ID
+     * @return 区划列表
+     */
+    @ApiOperation("查询市级区划下辖区级区划列表")
     @GetMapping(path = "/urban/district/cities/{cityId}/districts", produces = "application/json")
     public List<District> getCityDistricts(
             @PathVariable("cityId") @ApiParam(value = "市ID") Long cityId) {
-        return districtService.getChildDistricts(cityId);
+        try {
+            return districtService.getCityDistricts(cityId);
+        } catch (ResponseStatusException ex) {
+            log.error(ex.getMessage(), ex);
+            throw ex;
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+            throw new InternalServerErrorException();
+        }
+    }
+
+    /**
+     * 查询区级区划
+     *
+     * @param districtId 区ID
+     * @return 区划
+     */
+    @ApiOperation("查询区级区划")
+    @GetMapping(path = "/urban/district/districts/{districtId}", produces = "application/json")
+    public District getDistrict(
+            @PathVariable("districtId") @ApiParam(value = "区ID") Long districtId) {
+        try {
+            return districtService.getDistrict(districtId);
+        } catch (ResponseStatusException ex) {
+            log.error(ex.getMessage(), ex);
+            throw ex;
+        } catch (Exception ex) {
+            log.error(ex.getMessage(), ex);
+            throw new InternalServerErrorException();
+        }
     }
 }

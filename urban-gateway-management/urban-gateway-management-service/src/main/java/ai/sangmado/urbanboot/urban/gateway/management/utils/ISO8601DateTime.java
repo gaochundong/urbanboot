@@ -1,4 +1,4 @@
-package ai.sangmado.urbanboot.urban.traffic.management.utils;
+package ai.sangmado.urbanboot.urban.gateway.management.utils;
 
 import java.time.Instant;
 import java.time.LocalDateTime;

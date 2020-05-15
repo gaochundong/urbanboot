@@ -35,8 +35,8 @@
 ## API Testing
 
 - curl http://localhost:7200/urban/district/provinces
+- curl http://localhost:7200/urban/district/provinces/21
 - curl http://localhost:7200/urban/district/provinces/21/cities
+- curl http://localhost:7200/urban/district/cities/2101
 - curl http://localhost:7200/urban/district/cities/2101/districts
 - curl http://localhost:7200/urban/district/districts/210103
-- curl http://localhost:7200/urban/district/districts/2101
-- curl http://localhost:7200/urban/district/districts/21

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: urbanboot-traffic-management-nodeport
+  namespace: urbanboot
+  labels:
+    service: urbanboot-traffic-management-nodeport
+spec:
+  type: NodePort
+  externalTrafficPolicy: Cluster
+  selector:
+    app: urbanboot-traffic-management-app
+  ports:
+    - name: tcp
+      port: 7200
+      protocol: TCP
+      targetPort: 7200
+      nodePort: 30032

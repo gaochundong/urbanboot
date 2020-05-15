@@ -4,11 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 区
+ * 市
  */
 @Getter
 @Setter
-public class District {
+public class City {
 
     private Long id;
 

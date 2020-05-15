@@ -39,6 +39,11 @@
                 <artifactId>urban-traffic-management-app</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>ai.sangmado.urbanboot</groupId>
+                <artifactId>urban-district-management-contract</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
