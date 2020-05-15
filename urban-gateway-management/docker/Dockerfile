@@ -37,7 +37,7 @@ ENTRYPOINT [ \
     "-Xmx1024M", \
     "-Dserver.port=7200", \
     "-Dspring.cloud.consul.enabled=false", \
-    "-Dspring.cloud.kubernetes.enabled=false", \
-    "-Dspring.cloud.kubernetes.ribbon.enabled=false", \
+    "-Dspring.cloud.kubernetes.enabled=true", \
+    "-Dspring.cloud.kubernetes.ribbon.enabled=true", \
     "-Duser.dir=/opt/urbanboot/urban-gateway-management", \
     "/opt/urbanboot/urban-gateway-management/urban-gateway-management-app.jar"]
