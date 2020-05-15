@@ -3,7 +3,7 @@ FROM maven:3.6.3-jdk-8 as build
 COPY . /urbanboot/
 WORKDIR /urbanboot/urban-district-management/
 
-RUN mvn clean package
+RUN mvn -s /urbanboot/settings.xml clean package
 
 # Start with a base image containing Java runtime
 FROM adoptopenjdk:8-jre-hotspot-bionic
