@@ -6,7 +6,7 @@ metadata:
   labels:
     app: urbanboot-gateway-management-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: urbanboot-gateway-management-app
