@@ -36,6 +36,7 @@ public class DistrictController {
     @GetMapping(path = "/urban/district/provinces", produces = "application/json")
     public List<Province> getProvinces() {
         try {
+            log.info("查询省级区划列表");
             return districtService.getProvinces();
         } catch (ResponseStatusException ex) {
             log.error(ex.getMessage(), ex);
@@ -57,6 +58,7 @@ public class DistrictController {
     public Province getProvinceById(
             @PathVariable("provinceId") @ApiParam(value = "省ID") Long provinceId) {
         try {
+            log.info("查询省级区划, 省ID[{}]", provinceId);
             return districtService.getProvinceById(provinceId);
         } catch (ResponseStatusException ex) {
             log.error(ex.getMessage(), ex);
@@ -78,6 +80,7 @@ public class DistrictController {
     public List<City> getProvinceCities(
             @PathVariable("provinceId") @ApiParam(value = "省ID") Long provinceId) {
         try {
+            log.info("查询省级区划下辖市级区划列表, 省ID[{}]", provinceId);
             return districtService.getProvinceCities(provinceId);
         } catch (ResponseStatusException ex) {
             log.error(ex.getMessage(), ex);
@@ -99,6 +102,7 @@ public class DistrictController {
     public City getCityById(
             @PathVariable("cityId") @ApiParam(value = "市ID") Long cityId) {
         try {
+            log.info("查询市级区划, 市ID[{}]", cityId);
             return districtService.getCityById(cityId);
         } catch (ResponseStatusException ex) {
             log.error(ex.getMessage(), ex);
@@ -120,6 +124,7 @@ public class DistrictController {
     public List<District> getCityDistricts(
             @PathVariable("cityId") @ApiParam(value = "市ID") Long cityId) {
         try {
+            log.info("查询市级区划下辖区级区划列表, 市ID[{}]", cityId);
             return districtService.getCityDistricts(cityId);
         } catch (ResponseStatusException ex) {
             log.error(ex.getMessage(), ex);
@@ -141,6 +146,7 @@ public class DistrictController {
     public District getDistrict(
             @PathVariable("districtId") @ApiParam(value = "区ID") Long districtId) {
         try {
+            log.info("查询区级区划, 区ID[{}]", districtId);
             return districtService.getDistrict(districtId);
         } catch (ResponseStatusException ex) {
             log.error(ex.getMessage(), ex);
