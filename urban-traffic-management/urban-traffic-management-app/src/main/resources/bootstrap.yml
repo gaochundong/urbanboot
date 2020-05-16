@@ -60,6 +60,8 @@ spring:
           ttl-unit: s
     kubernetes:
       enabled: false
+      client:
+        namespace: urbanboot
       config:
         enabled: false
         name: urban-traffic-management-app
