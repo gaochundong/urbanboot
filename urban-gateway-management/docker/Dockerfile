@@ -34,7 +34,7 @@ ENTRYPOINT [ \
     "-jar", \
     "-Xmn64M", \
     "-Xms64M", \
-    "-Xmx1024M", \
+    "-Xmx256M", \
     "-Dserver.port=7200", \
     "-Dspring.cloud.consul.enabled=false", \
     "-Dspring.cloud.kubernetes.enabled=true", \
