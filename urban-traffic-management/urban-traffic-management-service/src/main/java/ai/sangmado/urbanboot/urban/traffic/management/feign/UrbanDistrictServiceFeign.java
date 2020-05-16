@@ -1,9 +1,9 @@
 package ai.sangmado.urbanboot.urban.traffic.management.feign;
 
-import ai.sangmado.urbanboot.urban.district.management.contract.City;
-import ai.sangmado.urbanboot.urban.district.management.contract.District;
-import ai.sangmado.urbanboot.urban.district.management.contract.Province;
 import ai.sangmado.urbanboot.urban.traffic.management.feign.config.CustomizedFeignClientsConfiguration;
+import ai.sangmado.urbanboot.urban.traffic.management.feign.district.City;
+import ai.sangmado.urbanboot.urban.traffic.management.feign.district.District;
+import ai.sangmado.urbanboot.urban.traffic.management.feign.district.Province;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.cloud.openfeign.FeignClient;

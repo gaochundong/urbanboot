@@ -1,11 +1,11 @@
 package ai.sangmado.urbanboot.urban.traffic.management.controller;
 
-import ai.sangmado.urbanboot.urban.district.management.contract.City;
 import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLight;
 import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLightColor;
 import ai.sangmado.urbanboot.urban.traffic.management.exception.InternalServerErrorException;
 import ai.sangmado.urbanboot.urban.traffic.management.exception.InvalidRequestParameterException;
 import ai.sangmado.urbanboot.urban.traffic.management.feign.UrbanDistrictServiceFeign;
+import ai.sangmado.urbanboot.urban.traffic.management.feign.district.City;
 import ai.sangmado.urbanboot.urban.traffic.management.service.TrafficLightService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
