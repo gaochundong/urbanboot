@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: urbanboot-traffic-management-app
+  name: urban-traffic-management-app
   namespace: urbanboot
   labels:
-    app: urbanboot-traffic-management-app
+    app: urban-traffic-management-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: urbanboot-traffic-management-app
+      app: urban-traffic-management-app
   template:
     metadata:
       labels:
-        app: urbanboot-traffic-management-app
+        app: urban-traffic-management-app
     spec:
       containers:
-        - name: urbanboot-traffic-management-app
+        - name: urban-traffic-management-app
           image: docker.io/library/urban-traffic-management-app:latest
           imagePullPolicy: IfNotPresent
           ports:
@@ -28,8 +28,8 @@ spec:
               cpu: 100m
               memory: 256Mi
             limits:
-              cpu: 200m
-              memory: 256Mi
+              cpu: 1000m
+              memory: 1024Mi
           livenessProbe:
             httpGet:
               path: /health

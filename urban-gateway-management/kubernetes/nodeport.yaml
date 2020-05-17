@@ -9,7 +9,7 @@ spec:
   type: NodePort
   externalTrafficPolicy: Cluster
   selector:
-    app: urbanboot-gateway-management-app
+    app: urban-gateway-management-app
   ports:
     - name: tcp
       port: 7200

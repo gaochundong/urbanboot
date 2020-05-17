@@ -8,7 +8,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: urbanboot-traffic-management-app
+    app: urban-traffic-management-app
   ports:
     - name: tcp
       port: 7200

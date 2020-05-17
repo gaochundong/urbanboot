@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: urbanboot-gateway-management-app
+  name: urban-gateway-management-app
   namespace: urbanboot
   labels:
-    app: urbanboot-gateway-management-app
+    app: urban-gateway-management-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: urbanboot-gateway-management-app
+      app: urban-gateway-management-app
   template:
     metadata:
       labels:
-        app: urbanboot-gateway-management-app
+        app: urban-gateway-management-app
     spec:
       containers:
-        - name: urbanboot-gateway-management-app
+        - name: urban-gateway-management-app
           image: docker.io/library/urban-gateway-management-app:latest
           imagePullPolicy: IfNotPresent
           ports:
@@ -28,8 +28,8 @@ spec:
               cpu: 100m
               memory: 256Mi
             limits:
-              cpu: 200m
-              memory: 256Mi
+              cpu: 1000m
+              memory: 1024Mi
           livenessProbe:
             httpGet:
               path: /health
