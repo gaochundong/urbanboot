@@ -1,0 +1,89 @@
+info:
+  app:
+    name: urban-iptable-management-app
+    vendor: sangmado
+    division: urban
+    category: urbanboot
+
+spring:
+  application:
+    name: urban-iptable-management-app
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: true
+        fail-fast: false
+        register-management: true
+    consul:
+      enabled: false
+      host: localhost
+      port: 8500
+      scheme: http
+      retry:
+        initial-interval: 1000
+        max-interval: 5000
+        max-attempts: 6
+      config:
+        enabled: true
+        prefix: configuration-apps
+        defaultContext: configuration-common
+        name: urban-iptable-management-app/application
+        format: FILES
+        profileSeparator: '::'
+        failFast: true
+        watch:
+          enabled: true
+          waitTime: 55
+          delay: 1000
+      discovery:
+        enabled: true
+        service-name: urban-iptable-management-app
+        tags: category=urbanboot, name=urban-iptable-management-app
+        default-zone-metadata-name: zone
+        scheme: http
+        fail-fast: true
+        prefer-ip-address: true
+        catalog-services-watch-delay: 1000
+        catalog-services-watch-timeout: 2
+        register: true
+        deregister: true
+        register-health-check: true
+        health-check-path: /health
+        health-check-interval: 10s
+        health-check-timeout: 5s
+        health-check-critical-timeout: 30m
+        lifecycle:
+          enabled: true
+        heartbeat:
+          enabled: true
+          ttl-value: 30
+          ttl-unit: s
+    kubernetes:
+      enabled: false
+      client:
+        namespace: urbanboot
+      config:
+        enabled: false
+        name: urban-iptable-management-app
+        enableApi: false
+        paths: /opt/urbanboot/urban-management/config/k8s/config-map/volume-name.yml
+      secrets:
+        enabled: false
+        name: urban-iptable-management-app
+        enableApi: false
+        paths: /opt/urbanboot/urban-management/config/k8s/secrets/volume-name.yml
+      reload:
+        enabled: false
+        monitoring-config-maps: false
+        monitoring-secrets: false
+        strategy: refresh
+        mode: event
+        period: 15000
+      discovery:
+        enabled: true
+        service-name: urban-iptable-management-app
+        all-namespaces: true
+      ribbon:
+        enabled: false
+        mode: POD
+        cluster-domain: cluster.local

@@ -9,6 +9,13 @@
     <name>UrbanBoot Parent POM</name>
     <description>UrbanBoot Parent POM</description>
 
+    <modules>
+        <module>urban-district-management</module>
+        <module>urban-traffic-management</module>
+        <module>urban-iptable-management</module>
+        <module>urban-gateway-management</module>
+    </modules>
+
     <properties>
         <!--build-->
         <java.version>1.8</java.version>

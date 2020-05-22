@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: urbanboot-iptable-management-service
+  namespace: urbanboot
+  labels:
+    service: urbanboot-iptable-management-service
+spec:
+  type: ClusterIP
+  selector:
+    app: urban-iptable-management-app
+  ports:
+    - name: tcp
+      port: 7200
+      protocol: TCP
+      targetPort: 7200

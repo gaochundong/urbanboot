@@ -1,0 +1,149 @@
+server:
+  port: 7200
+  server-header: UrbanBoot
+  use-forward-headers: true
+  max-http-header-size: 8KB
+  error:
+    include-exception: false
+    include-stacktrace: never
+    whitelabel:
+      enabled: true
+  tomcat:
+    basedir: ./
+    accept-count: 100
+    max-threads: 200
+    min-spare-threads: 10
+    background-processor-delay: 10s
+    max-connections: 8192
+    max-http-form-post-size: 2MB
+    max-swallow-size: 2MB
+    accesslog:
+      enabled: true
+      directory: logs
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS z}t "%r" "%{User-Agent}i" "%h" "%a" "%A" "%{Referer}i" "%I" %b %s %Dms'
+      prefix: access
+      file-date-format: .yyyy-MM-dd
+      suffix: .log
+      rotate: true
+      rename-on-rotate: true
+      buffered: true
+      request-attributes-enabled: true
+  jetty:
+    acceptors: -1
+    selectors: -1
+    max-http-form-post-size: 2MB
+    accesslog:
+      enabled: true
+      log-cookies: false
+      log-latency: true
+      log-server: true
+      time-zone: GMT
+      date-format: 'yyyy-MM-dd HH:mm:ss.SSS'
+      extended-format: true
+      append: true
+      file-date-format: yyyy_MM_dd
+      filename: logs/access-yyyy_MM_dd.log
+      retention-period: 7
+  undertow:
+    io-threads: 16
+    worker-threads: 256
+    buffer-size: 1024
+    buffers-per-region: 1024
+    direct-buffers: true
+    eager-filter-init: true
+    max-http-post-size: 2MB
+    accesslog:
+      enabled: true
+      dir: logs
+      pattern: '%{time,yyyy-MM-dd HH:mm:ss.SSS z} %m %U "%q" %s %D %b %{i,Referer} "%{i,User-Agent}" %l %u "%I" "%v" %a'
+      prefix: access
+      suffix: .log
+      rotate: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,shutdown
+  endpoint:
+    consul:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    shutdown:
+      enabled: true
+
+logging:
+  config: classpath:logback/logback-config.xml
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
+        beans:
+          factory:
+            support:
+              DefaultListableBeanFactory: ERROR
+        core:
+          LocalVariableTableParameterNameDiscoverer: ERROR
+          env:
+            PropertySourcesPropertyResolver: ERROR
+      hibernate: ERROR
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    local-cache-scope: SESSION
+    lazy-loading-enabled: false
+  mapper-locations: classpath*:mybatis/builder/*Mapper.xml
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:urbandb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 123
+    schema: classpath:database/h2/schema.sql
+    data: classpath:database/h2/data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+        trace: false
+  jackson:
+    dateFormat: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+    timeZone: GMT
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+      WRITE_DURATIONS_AS_TIMESTAMPS: true
+    default-property-inclusion: ALWAYS
+  sleuth:
+    enabled: true
+    trace-id128: true
+    supports-join: true
+    feign:
+      enabled: true
+      processor:
+        enabled: true
+    opentracing:
+      enabled: false
+
+springfox:
+  documentation:
+    auto-startup: true
+    swagger:
+      v2:
+        path: /urban/iptable/api-docs
+    service:
+      title: Urban IPTable Management Service
+      description: 城市IP地址查询服务

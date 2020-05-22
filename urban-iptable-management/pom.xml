@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ai.sangmado.urbanboot</groupId>
+        <artifactId>urbanboot-parent</artifactId>
+        <version>1.0.1041-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>urban-iptable-management</artifactId>
+    <version>1.0.1041-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Urban IPTable Management Parent POM</name>
+    <description>Urban IPTable Management Parent POM</description>
+
+    <modules>
+        <module>urban-iptable-management-contract</module>
+        <module>urban-iptable-management-service</module>
+        <module>urban-iptable-management-app</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!--modules-->
+            <dependency>
+                <groupId>ai.sangmado.urbanboot</groupId>
+                <artifactId>urban-iptable-management-contract</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ai.sangmado.urbanboot</groupId>
+                <artifactId>urban-iptable-management-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ai.sangmado.urbanboot</groupId>
+                <artifactId>urban-iptable-management-app</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
