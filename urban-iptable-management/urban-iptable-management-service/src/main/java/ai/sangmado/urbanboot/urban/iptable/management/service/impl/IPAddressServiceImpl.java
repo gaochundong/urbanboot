@@ -1,9 +1,9 @@
 package ai.sangmado.urbanboot.urban.iptable.management.service.impl;
 
+import ai.sangmado.urbanboot.urban.common.exception.InvalidRequestParameterException;
 import ai.sangmado.urbanboot.urban.iptable.management.contract.IPAddress;
 import ai.sangmado.urbanboot.urban.iptable.management.converter.IPAddressConverter;
 import ai.sangmado.urbanboot.urban.iptable.management.entity.IPAddressPO;
-import ai.sangmado.urbanboot.urban.iptable.management.exception.InvalidRequestParameterException;
 import ai.sangmado.urbanboot.urban.iptable.management.mapper.IPAddressMapper;
 import ai.sangmado.urbanboot.urban.iptable.management.service.IPAddressService;
 import lombok.extern.slf4j.Slf4j;

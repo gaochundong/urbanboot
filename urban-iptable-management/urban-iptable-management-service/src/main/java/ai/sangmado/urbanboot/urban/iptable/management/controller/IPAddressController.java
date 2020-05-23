@@ -1,7 +1,7 @@
 package ai.sangmado.urbanboot.urban.iptable.management.controller;
 
+import ai.sangmado.urbanboot.urban.common.exception.InternalServerErrorException;
 import ai.sangmado.urbanboot.urban.iptable.management.contract.IPAddress;
-import ai.sangmado.urbanboot.urban.iptable.management.exception.InternalServerErrorException;
 import ai.sangmado.urbanboot.urban.iptable.management.service.IPAddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

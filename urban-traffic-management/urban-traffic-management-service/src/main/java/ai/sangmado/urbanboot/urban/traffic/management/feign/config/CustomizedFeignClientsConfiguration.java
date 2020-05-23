@@ -1,6 +1,6 @@
 package ai.sangmado.urbanboot.urban.traffic.management.feign.config;
 
-import ai.sangmado.urbanboot.urban.traffic.management.utils.Jackson;
+import ai.sangmado.urbanboot.urban.common.utils.Jackson;
 import feign.Logger;
 import feign.codec.Decoder;
 import feign.codec.Encoder;

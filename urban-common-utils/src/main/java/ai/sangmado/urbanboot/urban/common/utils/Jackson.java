@@ -1,4 +1,4 @@
-package ai.sangmado.urbanboot.urban.district.management.utils;
+package ai.sangmado.urbanboot.urban.common.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonFactory;

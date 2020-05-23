@@ -1,4 +1,4 @@
-package ai.sangmado.urbanboot.urban.district.management.exception;
+package ai.sangmado.urbanboot.urban.common.exception;
 
 import lombok.Getter;
 import lombok.Setter;

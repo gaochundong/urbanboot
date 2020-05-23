@@ -1,9 +1,9 @@
 package ai.sangmado.urbanboot.urban.district.management.controller;
 
+import ai.sangmado.urbanboot.urban.common.exception.InternalServerErrorException;
 import ai.sangmado.urbanboot.urban.district.management.contract.City;
 import ai.sangmado.urbanboot.urban.district.management.contract.District;
 import ai.sangmado.urbanboot.urban.district.management.contract.Province;
-import ai.sangmado.urbanboot.urban.district.management.exception.InternalServerErrorException;
 import ai.sangmado.urbanboot.urban.district.management.service.DistrictService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

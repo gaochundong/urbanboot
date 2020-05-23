@@ -11,6 +11,9 @@ public class RouteLocatorConfiguration {
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
+                .route(p -> p.path("/urban/iptable/**")
+                        .uri("lb://urban-iptable-management-app/")
+                        .id("城市IP地址查询服务"))
                 .route(p -> p.path("/urban/district/**")
                         .uri("lb://urban-district-management-app/")
                         .id("城市区划管理服务"))

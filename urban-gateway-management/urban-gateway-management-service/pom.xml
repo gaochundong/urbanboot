@@ -231,6 +231,12 @@
             </exclusions>
         </dependency>
 
+        <!--modules-->
+        <dependency>
+            <groupId>ai.sangmado.urbanboot</groupId>
+            <artifactId>urban-common-utils</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

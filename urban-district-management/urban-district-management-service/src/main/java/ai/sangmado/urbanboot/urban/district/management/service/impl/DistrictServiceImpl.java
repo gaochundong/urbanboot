@@ -1,11 +1,11 @@
 package ai.sangmado.urbanboot.urban.district.management.service.impl;
 
+import ai.sangmado.urbanboot.urban.common.exception.InvalidRequestParameterException;
 import ai.sangmado.urbanboot.urban.district.management.contract.City;
 import ai.sangmado.urbanboot.urban.district.management.contract.District;
 import ai.sangmado.urbanboot.urban.district.management.contract.Province;
 import ai.sangmado.urbanboot.urban.district.management.converter.DistrictConverter;
 import ai.sangmado.urbanboot.urban.district.management.entity.DistrictPO;
-import ai.sangmado.urbanboot.urban.district.management.exception.InvalidRequestParameterException;
 import ai.sangmado.urbanboot.urban.district.management.mapper.DistrictMapper;
 import ai.sangmado.urbanboot.urban.district.management.service.DistrictService;
 import lombok.extern.slf4j.Slf4j;

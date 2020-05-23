@@ -1,6 +1,6 @@
 package ai.sangmado.urbanboot.urban.gateway.management.logging;
 
-import ai.sangmado.urbanboot.urban.gateway.management.utils.ISO8601DateTime;
+import ai.sangmado.urbanboot.urban.common.utils.ISO8601DateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

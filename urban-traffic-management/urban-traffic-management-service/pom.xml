@@ -313,6 +313,10 @@
         <!--modules-->
         <dependency>
             <groupId>ai.sangmado.urbanboot</groupId>
+            <artifactId>urban-common-utils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ai.sangmado.urbanboot</groupId>
             <artifactId>urban-traffic-management-contract</artifactId>
         </dependency>
 

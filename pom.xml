@@ -10,6 +10,7 @@
     <description>UrbanBoot Parent POM</description>
 
     <modules>
+        <module>urban-common-utils</module>
         <module>urban-district-management</module>
         <module>urban-traffic-management</module>
         <module>urban-iptable-management</module>

@@ -1,4 +1,4 @@
-package ai.sangmado.urbanboot.urban.district.management.utils;
+package ai.sangmado.urbanboot.urban.common.utils;
 
 import java.time.Instant;
 import java.time.LocalDateTime;

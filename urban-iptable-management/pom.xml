@@ -26,6 +26,11 @@
             <!--modules-->
             <dependency>
                 <groupId>ai.sangmado.urbanboot</groupId>
+                <artifactId>urban-common-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ai.sangmado.urbanboot</groupId>
                 <artifactId>urban-iptable-management-contract</artifactId>
                 <version>${project.version}</version>
             </dependency>
