@@ -7,19 +7,19 @@ import lombok.Setter;
 @Setter
 public class IPAddressPO {
 
-    private Long id;
+    private String ipStart;
 
-    private Long parentId;
+    private String ipEnd;
 
-    private Integer level;
+    private String address;
 
-    private String name;
+    private String location;
 
-    private String pinyinPrefix;
+    private String country;
 
-    private String pinyin;
+    private String province;
 
-    private String extId;
+    private String city;
 
-    private String fullName;
+    private String district;
 }

@@ -34,4 +34,5 @@
 
 ## API Testing
 
-- curl http://localhost:7200/urban/iptable
+- curl -s http://localhost:7200/urban/iptable/ip-address?ip=1.0.4.0 | jq
+- curl -s http://localhost:7200/urban/iptable/ip-address-list?ipList=1.0.4.0,1.63.12.255 | jq

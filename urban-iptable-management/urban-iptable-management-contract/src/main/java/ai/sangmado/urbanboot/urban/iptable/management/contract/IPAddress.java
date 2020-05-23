@@ -1,5 +1,7 @@
 package ai.sangmado.urbanboot.urban.iptable.management.contract;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,21 +10,22 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class IPAddress {
 
-    private Long id;
+    private String ipStart;
 
-    private Long parentId;
+    private String ipEnd;
 
-    private Integer level;
+    private String address;
 
-    private String name;
+    private String location;
 
-    private String pinyinPrefix;
+    private String country;
 
-    private String pinyin;
+    private String province;
 
-    private String extId;
+    private String city;
 
-    private String fullName;
+    private String district;
 }

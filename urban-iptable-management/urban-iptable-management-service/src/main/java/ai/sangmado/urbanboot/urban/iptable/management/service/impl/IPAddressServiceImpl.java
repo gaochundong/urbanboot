@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,9 +40,19 @@ public class IPAddressServiceImpl implements IPAddressService {
         if (stringIPAddressList == null || stringIPAddressList.size() == 0) {
             throw new InvalidRequestParameterException("stringIPAddressList", "IP地址列表不能为空");
         }
+        final int maxLimit = 20;
+        if (stringIPAddressList.size() > maxLimit) {
+            throw new InvalidRequestParameterException("stringIPAddressList", "IP地址数量不超过" + maxLimit);
+        }
 
-        List<IPAddressPO> ipList = ipAddressMapper.queryIPAddressList(stringIPAddressList);
-        log.info("批量查询IP地址[{}]匹配数量[{}]", stringIPAddressList.size(), ipList == null ? 0 : ipList.size());
+        List<IPAddressPO> ipList = new ArrayList<>(stringIPAddressList.size());
+        for (String stringIPAddress : stringIPAddressList) {
+            IPAddressPO ip = ipAddressMapper.queryIPAddress(stringIPAddress);
+            if (ip != null) {
+                ipList.add(ip);
+            }
+        }
+        log.info("批量查询IP地址[{}]匹配数量[{}]", stringIPAddressList.size(), ipList.size());
         return ipAddressConverter.convertToIPAddressList(ipList);
     }
 }

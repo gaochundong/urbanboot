@@ -5,11 +5,11 @@
 <mapper namespace="ai.sangmado.urbanboot.urban.iptable.management.mapper.IPAddressMapper">
 
     <select id="queryIPAddress" resultType="ai.sangmado.urbanboot.urban.iptable.management.entity.IPAddressPO">
-        select * from ip_address where id = #{iptableId} limit 1
-    </select>
-
-    <select id="queryIPAddressList" resultType="ai.sangmado.urbanboot.urban.iptable.management.entity.IPAddressPO">
-        select * from ip_address where parent_id = #{parentId} order by pinyin
+        select *
+        from ip_address
+        where INET_ATON(ip_start) <![CDATA[ <= ]]> INET_ATON(#{stringIPAddress})
+        and INET_ATON(#{stringIPAddress}) <![CDATA[ <= ]]> INET_ATON(ip_end)
+        limit 1
     </select>
 
 </mapper>
