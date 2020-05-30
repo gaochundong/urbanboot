@@ -1,7 +1,5 @@
 package ai.sangmado.urbanboot.urban.traffic.management.controller;
 
-import ai.sangmado.urbanboot.urban.common.exception.InternalServerErrorException;
-import ai.sangmado.urbanboot.urban.common.exception.InvalidRequestParameterException;
 import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLight;
 import ai.sangmado.urbanboot.urban.traffic.management.contract.TrafficLightColor;
 import ai.sangmado.urbanboot.urban.traffic.management.feign.UrbanDistrictServiceFeign;
@@ -12,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,13 +46,15 @@ public class TrafficLightController {
             @PathVariable("cityId") @ApiParam(value = "城市ID") Long cityId,
             @RequestParam(value = "color", required = false) @ApiParam(value = "信号灯颜色") String color) {
         if (cityId == null) {
-            throw new InvalidRequestParameterException("cityId", "城市ID不能为空");
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, String.format("Invalid parameter, [%s], %s.", "cityId", "城市ID不能为空"));
         }
 
         try {
             City city = districtService.getCityById(cityId);
             if (city == null) {
-                throw new InvalidRequestParameterException("cityId", "城市ID不存在");
+                throw new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST, String.format("Invalid parameter, [%s], %s.", "cityId", "城市ID不存在"));
             }
 
             final String TOTAL = "total";
@@ -83,7 +84,7 @@ public class TrafficLightController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 
@@ -100,13 +101,15 @@ public class TrafficLightController {
             @PathVariable("cityId") @ApiParam(value = "城市ID") Long cityId,
             @RequestParam(value = "color", required = false) @ApiParam(value = "信号灯颜色") String color) {
         if (cityId == null) {
-            throw new InvalidRequestParameterException("cityId", "城市ID不能为空");
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, String.format("Invalid parameter, [%s], %s.", "cityId", "城市ID不能为空"));
         }
 
         try {
             City city = districtService.getCityById(cityId);
             if (city == null) {
-                throw new InvalidRequestParameterException("cityId", "城市ID不存在");
+                throw new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST, String.format("Invalid parameter, [%s], %s.", "cityId", "城市ID不存在"));
             }
 
             TrafficLightColor colorType = TrafficLightColor.parse(color);
@@ -122,7 +125,7 @@ public class TrafficLightController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 }

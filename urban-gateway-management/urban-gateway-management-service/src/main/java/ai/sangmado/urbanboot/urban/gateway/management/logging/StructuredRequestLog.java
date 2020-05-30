@@ -1,6 +1,5 @@
 package ai.sangmado.urbanboot.urban.gateway.management.logging;
 
-import ai.sangmado.urbanboot.urban.common.utils.ISO8601DateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -8,6 +7,7 @@ import lombok.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @Getter
@@ -96,7 +96,7 @@ public class StructuredRequestLog {
                 Objects.toString(port, ""),
                 Objects.toString(userAgent, ""),
                 Objects.toString(httpMethod, ""), Objects.toString(originalUri, ""),
-                requestBeginTime == null ? "" : ISO8601DateTime.format(requestBeginTime),
+                requestBeginTime == null ? "" : DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss[.SSS'Z']").format(requestBeginTime),
                 Objects.toString(routeId, ""),
                 Objects.toString(routeUri, ""),
                 Objects.toString(responseStatus, ""), Objects.toString(responseReasonPhrase, ""),

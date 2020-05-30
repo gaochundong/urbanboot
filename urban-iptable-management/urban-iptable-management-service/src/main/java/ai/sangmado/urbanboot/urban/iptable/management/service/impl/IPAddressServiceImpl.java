@@ -1,6 +1,5 @@
 package ai.sangmado.urbanboot.urban.iptable.management.service.impl;
 
-import ai.sangmado.urbanboot.urban.common.exception.InvalidRequestParameterException;
 import ai.sangmado.urbanboot.urban.iptable.management.contract.IPAddress;
 import ai.sangmado.urbanboot.urban.iptable.management.converter.IPAddressConverter;
 import ai.sangmado.urbanboot.urban.iptable.management.entity.IPAddressPO;
@@ -27,7 +26,7 @@ public class IPAddressServiceImpl implements IPAddressService {
     @Override
     public IPAddress searchIPAddress(String stringIPAddress) {
         if (stringIPAddress == null || stringIPAddress.length() == 0) {
-            throw new InvalidRequestParameterException("stringIPAddress", "IP地址不能为空");
+            throw new IllegalArgumentException("stringIPAddress, IP地址不能为空");
         }
 
         IPAddressPO ip = ipAddressMapper.queryIPAddress(stringIPAddress);
@@ -38,11 +37,11 @@ public class IPAddressServiceImpl implements IPAddressService {
     @Override
     public List<IPAddress> searchIPAddressList(List<String> stringIPAddressList) {
         if (stringIPAddressList == null || stringIPAddressList.size() == 0) {
-            throw new InvalidRequestParameterException("stringIPAddressList", "IP地址列表不能为空");
+            throw new IllegalArgumentException("stringIPAddressList, IP地址列表不能为空");
         }
         final int maxLimit = 20;
         if (stringIPAddressList.size() > maxLimit) {
-            throw new InvalidRequestParameterException("stringIPAddressList", "IP地址数量不超过" + maxLimit);
+            throw new IllegalArgumentException("stringIPAddressList, IP地址数量不超过" + maxLimit);
         }
 
         List<IPAddressPO> ipList = new ArrayList<>(stringIPAddressList.size());

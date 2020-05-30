@@ -1,6 +1,5 @@
 package ai.sangmado.urbanboot.urban.iptable.management.controller;
 
-import ai.sangmado.urbanboot.urban.common.exception.InternalServerErrorException;
 import ai.sangmado.urbanboot.urban.iptable.management.contract.IPAddress;
 import ai.sangmado.urbanboot.urban.iptable.management.service.IPAddressService;
 import io.swagger.annotations.Api;
@@ -8,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,7 +43,7 @@ public class IPAddressController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 
@@ -65,7 +65,7 @@ public class IPAddressController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 }

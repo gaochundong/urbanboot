@@ -1,6 +1,5 @@
 package ai.sangmado.urbanboot.urban.gateway.management.filters;
 
-import ai.sangmado.urbanboot.urban.common.utils.ISO8601DateTime;
 import ai.sangmado.urbanboot.urban.gateway.management.logging.StructuredRequestLog;
 import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +16,9 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
@@ -80,8 +82,8 @@ public class LoggingGlobalFilter implements GlobalFilter, Ordered {
         Long requestEndTime = getAttributeOfRequestEndTime(exchange);
 
         StructuredRequestLog requestLog = StructuredRequestLog.builder()
-                .requestBeginTime(requestBeginTime == null ? null : ISO8601DateTime.toEpochDateTime(requestBeginTime))
-                .requestEndTime(requestEndTime == null ? null : ISO8601DateTime.toEpochDateTime(requestEndTime))
+                .requestBeginTime(requestBeginTime == null ? null : toEpochDateTime(requestBeginTime))
+                .requestEndTime(requestEndTime == null ? null : toEpochDateTime(requestEndTime))
                 .host(host)
                 .remoteAddress(remoteAddress)
                 .port(port)
@@ -103,5 +105,9 @@ public class LoggingGlobalFilter implements GlobalFilter, Ordered {
         } else {
             log.info(requestLog.toString());
         }
+    }
+
+    private static LocalDateTime toEpochDateTime(Long epochMilliseconds) {
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMilliseconds), ZoneId.of("UTC"));
     }
 }

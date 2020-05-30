@@ -12,7 +12,7 @@
 - docker build -t urban-iptable-management-app:latest --file ./urban-iptable-management/docker/Dockerfile .
 - docker images
 - docker rmi --force $(docker images | grep "^<none>" | awk '{print $3}') 
-- docker run --name urban-iptable-management-app -it -p 7200:7200/tcp urban-iptable-management-app:latest sh
+- docker run --name urban-iptable-management-app -it --rm -p 7200:7200/tcp urban-iptable-management-app:latest
 - docker ps
 - docker exec -it urban-iptable-management-app sh
 - docker exec -it urban-iptable-management-app sh -c "cat /opt/urbanboot/urban-iptable-management/logs/access.log"

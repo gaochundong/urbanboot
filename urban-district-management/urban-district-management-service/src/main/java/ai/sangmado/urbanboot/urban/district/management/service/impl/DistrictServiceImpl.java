@@ -1,6 +1,5 @@
 package ai.sangmado.urbanboot.urban.district.management.service.impl;
 
-import ai.sangmado.urbanboot.urban.common.exception.InvalidRequestParameterException;
 import ai.sangmado.urbanboot.urban.district.management.contract.City;
 import ai.sangmado.urbanboot.urban.district.management.contract.District;
 import ai.sangmado.urbanboot.urban.district.management.contract.Province;
@@ -32,7 +31,7 @@ public class DistrictServiceImpl implements DistrictService {
     @Override
     public Province getProvinceById(Long provinceId) {
         if (provinceId == null) {
-            throw new InvalidRequestParameterException("provinceId", "省ID不能为空");
+            throw new IllegalArgumentException("provinceId, 省ID不能为空");
         }
 
         DistrictPO district = districtMapper.getDistrict(provinceId);
@@ -54,12 +53,12 @@ public class DistrictServiceImpl implements DistrictService {
     @Override
     public List<City> getProvinceCities(Long provinceId) {
         if (provinceId == null) {
-            throw new InvalidRequestParameterException("provinceId", "省ID不能为空");
+            throw new IllegalArgumentException("provinceId, 省ID不能为空");
         }
 
         Province province = getProvinceById(provinceId);
         if (province == null) {
-            throw new InvalidRequestParameterException("provinceId", "省ID不存在");
+            throw new IllegalArgumentException("provinceId, 省ID不存在");
         }
 
         List<DistrictPO> districts = districtMapper.getChildDistricts(province.getId());
@@ -70,7 +69,7 @@ public class DistrictServiceImpl implements DistrictService {
     @Override
     public City getCityById(Long cityId) {
         if (cityId == null) {
-            throw new InvalidRequestParameterException("cityId", "市ID不能为空");
+            throw new IllegalArgumentException("cityId, 市ID不能为空");
         }
 
         DistrictPO district = districtMapper.getDistrict(cityId);
@@ -85,12 +84,12 @@ public class DistrictServiceImpl implements DistrictService {
     @Override
     public List<District> getCityDistricts(Long cityId) {
         if (cityId == null) {
-            throw new InvalidRequestParameterException("cityId", "市ID不能为空");
+            throw new IllegalArgumentException("cityId, 市ID不能为空");
         }
 
         City city = getCityById(cityId);
         if (city == null) {
-            throw new InvalidRequestParameterException("cityId", "市ID不存在");
+            throw new IllegalArgumentException("cityId, 市ID不存在");
         }
 
         List<DistrictPO> districts = districtMapper.getChildDistricts(city.getId());
@@ -101,7 +100,7 @@ public class DistrictServiceImpl implements DistrictService {
     @Override
     public District getDistrict(Long districtId) {
         if (districtId == null) {
-            throw new InvalidRequestParameterException("districtId", "区ID不能为空");
+            throw new IllegalArgumentException("districtId, 区ID不能为空");
         }
 
         DistrictPO district = districtMapper.getDistrict(districtId);

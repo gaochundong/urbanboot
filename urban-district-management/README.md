@@ -12,7 +12,7 @@
 - docker build -t urban-district-management-app:latest --file ./urban-district-management/docker/Dockerfile .
 - docker images
 - docker rmi --force $(docker images | grep "^<none>" | awk '{print $3}') 
-- docker run --name urban-district-management-app -it -p 7200:7200/tcp urban-district-management-app:latest sh
+- docker run --name urban-district-management-app -it --rm -p 7200:7200/tcp urban-district-management-app:latest
 - docker ps
 - docker exec -it urban-district-management-app sh
 - docker exec -it urban-district-management-app sh -c "cat /opt/urbanboot/urban-district-management/logs/access.log"

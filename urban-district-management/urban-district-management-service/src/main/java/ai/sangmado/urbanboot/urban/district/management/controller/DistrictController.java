@@ -1,6 +1,5 @@
 package ai.sangmado.urbanboot.urban.district.management.controller;
 
-import ai.sangmado.urbanboot.urban.common.exception.InternalServerErrorException;
 import ai.sangmado.urbanboot.urban.district.management.contract.City;
 import ai.sangmado.urbanboot.urban.district.management.contract.District;
 import ai.sangmado.urbanboot.urban.district.management.contract.Province;
@@ -10,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,7 +43,7 @@ public class DistrictController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 
@@ -65,7 +65,7 @@ public class DistrictController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 
@@ -87,7 +87,7 @@ public class DistrictController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 
@@ -109,7 +109,7 @@ public class DistrictController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 
@@ -131,7 +131,7 @@ public class DistrictController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 
@@ -153,7 +153,7 @@ public class DistrictController {
             throw ex;
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);
-            throw new InternalServerErrorException();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
         }
     }
 }
