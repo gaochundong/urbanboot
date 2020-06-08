@@ -1,0 +1,22 @@
+version: "2.2"
+services:
+  urban-iptable-management:
+    image: urban-iptable-management-app:latest
+    ports:
+      - "8201:7200"
+    command: -Dspring.cloud.consul.enabled=false -Dspring.cloud.kubernetes.enabled=false
+  urban-district-management:
+    image: urban-district-management-app:latest
+    ports:
+      - "8202:7200"
+    command: -Dspring.cloud.consul.enabled=false -Dspring.cloud.kubernetes.enabled=false
+  urban-traffic-management:
+    image: urban-traffic-management-app:latest
+    ports:
+      - "8203:7200"
+    command: -Dspring.cloud.consul.enabled=false -Dspring.cloud.kubernetes.enabled=false
+  urban-gateway-management:
+    image: urban-gateway-management-app:latest
+    ports:
+      - "8204:7200"
+    command: -Dspring.cloud.consul.enabled=false -Dspring.cloud.kubernetes.enabled=false
