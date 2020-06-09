@@ -6,7 +6,7 @@ WORKDIR /urbanboot/urban-traffic-management/
 RUN mvn -s /urbanboot/settings.xml clean package
 
 # Start with a base image containing Java runtime
-FROM adoptopenjdk:8-jre-hotspot-bionic
+FROM adoptopenjdk:8u252-b09-jre-hotspot-bionic
 
 # The application's jar file
 ARG APP_CATEGORY="urbanboot"
