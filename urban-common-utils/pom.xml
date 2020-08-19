@@ -5,11 +5,11 @@
     <parent>
         <groupId>ai.sangmado.urbanboot</groupId>
         <artifactId>urbanboot-parent</artifactId>
-        <version>1.0.1041-SNAPSHOT</version>
+        <version>1.0.1042-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>urban-common-utils</artifactId>
-    <version>1.0.1041-SNAPSHOT</version>
+    <version>1.0.1042-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Urban Common Utils</name>
     <description>Urban Common Utils</description>

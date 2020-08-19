@@ -5,11 +5,11 @@
     <parent>
         <groupId>ai.sangmado.urbanboot</groupId>
         <artifactId>urban-district-management</artifactId>
-        <version>1.0.1041-SNAPSHOT</version>
+        <version>1.0.1042-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>urban-district-management-app</artifactId>
-    <version>1.0.1041-SNAPSHOT</version>
+    <version>1.0.1042-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Urban District Management Application</name>
     <description>Urban District Management Application</description>

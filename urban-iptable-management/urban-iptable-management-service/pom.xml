@@ -5,11 +5,11 @@
     <parent>
         <groupId>ai.sangmado.urbanboot</groupId>
         <artifactId>urban-iptable-management</artifactId>
-        <version>1.0.1041-SNAPSHOT</version>
+        <version>1.0.1042-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>urban-iptable-management-service</artifactId>
-    <version>1.0.1041-SNAPSHOT</version>
+    <version>1.0.1042-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Urban IPTable Management Service Layer</name>
     <description>Urban IPTable Management Service Layer</description>
@@ -191,12 +191,6 @@
                     <artifactId>HikariCP</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <!--persistence-->
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
         </dependency>
 
         <!--h2-->
