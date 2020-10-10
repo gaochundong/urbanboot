@@ -130,23 +130,10 @@
                             <classifier>${maven.build.package.classifier}</classifier>
                             <excludeDevtools>true</excludeDevtools>
                             <finalName>${project.build.finalName}-${maven.build.timestamp}</finalName>
+                            <mainClass>ai.sangmado.urbanboot.urban.traffic.management.Application</mainClass>
                         </configuration>
                         <goals>
                             <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>ai.sangmado.urbanboot.urban.traffic.management.Application</mainClass>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
                         </goals>
                     </execution>
                 </executions>
