@@ -43,7 +43,7 @@
         <httpmime.version>4.5.12</httpmime.version>
         <unirest-java.version>3.9.00</unirest-java.version>
         <json.version>20200518</json.version>
-        <h2.version>1.4.200</h2.version>
+        <h2.version>2.0.206</h2.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
         <swagger-annotations.version>1.6.1</swagger-annotations.version>
         <commons-codec.version>1.14</commons-codec.version>
