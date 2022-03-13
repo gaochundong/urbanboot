@@ -29,7 +29,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .paths(PathSelectors.any())
-                .paths(Predicates.not(PathSelectors.regex("/error.*")))
+                .paths(Predicates.not(s -> PathSelectors.regex("/error.*").test(s)))
                 .build();
     }
 
