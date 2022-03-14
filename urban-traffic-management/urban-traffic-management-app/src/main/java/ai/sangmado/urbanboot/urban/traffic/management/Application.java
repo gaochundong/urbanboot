@@ -11,6 +11,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
+/**
+ * Urban Traffic Management Application
+ *
+ * @author gaochundong
+ */
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 @ComponentScan("ai.sangmado.urbanboot")
 @EnableDiscoveryClient
