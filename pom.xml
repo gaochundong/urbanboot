@@ -29,7 +29,7 @@
 
         <!--dependencies-->
         <lombok.version>1.18.22</lombok.version>
-        <spring-boot-starter.version>2.1.16.RELEASE</spring-boot-starter.version>
+        <spring-boot-starter.version>2.5.12</spring-boot-starter.version>
         <spring-cloud-starter.version>2.1.5.RELEASE</spring-cloud-starter.version>
         <spring-cloud-starter-kubernetes.version>1.0.5.RELEASE</spring-cloud-starter-kubernetes.version>
         <mapper-spring-boot-starter.version>2.1.5</mapper-spring-boot-starter.version>
