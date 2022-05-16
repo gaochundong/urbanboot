@@ -37,7 +37,7 @@
         <HikariCP.version>5.0.1</HikariCP.version>
         <guava.version>31.1-jre</guava.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <jackson.version>2.13.2</jackson.version>
+        <jackson.version>2.13.2.1</jackson.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpasyncclient.version>4.1.5</httpasyncclient.version>
         <httpmime.version>4.5.12</httpmime.version>
