@@ -33,7 +33,7 @@
         <spring-cloud-starter.version>2.1.5.RELEASE</spring-cloud-starter.version>
         <spring-cloud-starter-kubernetes.version>1.0.5.RELEASE</spring-cloud-starter-kubernetes.version>
         <mapper-spring-boot-starter.version>2.1.5</mapper-spring-boot-starter.version>
-        <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <HikariCP.version>5.0.1</HikariCP.version>
         <guava.version>31.1-jre</guava.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
