@@ -42,7 +42,7 @@
         <httpasyncclient.version>4.1.5</httpasyncclient.version>
         <httpmime.version>4.5.12</httpmime.version>
         <unirest-java.version>3.13.6</unirest-java.version>
-        <json.version>20211205</json.version>
+        <json.version>20230227</json.version>
         <h2.version>2.1.210</h2.version>
         <springfox-swagger2.version>2.10.5</springfox-swagger2.version>
         <swagger-annotations.version>1.6.5</swagger-annotations.version>
